@@ -40,16 +40,19 @@ document.addEventListener('click', function (event) {
 (function () {
   const menuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
   if (!menuButton || !mobileMenu) return;
 
   const toggleMenu = () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuButton.setAttribute('aria-expanded', String(isHidden));
-    const icon = menuButton.querySelector('i');
-    if (icon) {
-      icon.classList.toggle('fa-bars', !isHidden);
-      icon.classList.toggle('fa-times', isHidden);
+    const isOpen = mobileMenu.classList.contains('open');
+    mobileMenu.classList.toggle('open');
+    document.body.classList.toggle('no-scroll');
+    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    const iconMenu = menuButton.querySelector('.icon-menu');
+    const iconClose = menuButton.querySelector('.icon-close');
+    if (iconMenu && iconClose) {
+      iconMenu.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
     }
   };
 
@@ -58,22 +61,23 @@ document.addEventListener('click', function (event) {
     toggleMenu();
   });
 
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+  }
+
+  // Close when clicking a link or outside drawer
   mobileMenu.addEventListener('click', (e) => {
     const target = e.target;
-    if (target && target.tagName === 'A') {
-      if (!mobileMenu.classList.contains('hidden')) toggleMenu();
+    const clickedLink = target && target.closest('a');
+    const clickedInsideDrawer = target && target.closest('.mobile-drawer');
+    if (clickedLink) {
+      if (mobileMenu.classList.contains('open')) toggleMenu();
+    } else if (!clickedInsideDrawer) {
+      if (mobileMenu.classList.contains('open')) toggleMenu();
     }
   });
 
-  document.addEventListener('click', (e) => {
-    if (!mobileMenu.classList.contains('hidden')) {
-      const isClickInsideMenu = mobileMenu.contains(e.target);
-      const isClickOnButton = menuButton.contains(e.target);
-      if (!isClickInsideMenu && !isClickOnButton) {
-        toggleMenu();
-      }
-    }
-  });
+  // No global document listener needed; overlay handles outside clicks
 })();
 
 // Theme toggle removed

@@ -170,4 +170,39 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
   color: #ffffff !important;
 }
 
+/* Mobile drawer menu */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 60;
+  display: none;
+}
+.mobile-menu-overlay.open { display: block; }
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80vw;
+  max-width: 360px;
+  background: #ffffff;
+  border-left: 1px solid #e5e7eb;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.08);
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  padding: 16px 20px;
+}
+.mobile-menu-overlay.open .mobile-drawer { transform: translateX(0); }
+.mobile-drawer .menu-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: .06em; color: #6b7280; margin: 4px 0 10px; }
+.mobile-drawer .menu-links a { display: block; padding: 12px 0; color: #374151; font-size: 1.0625rem; text-decoration: none; }
+.mobile-drawer .menu-links a:hover { color: #2563eb; }
+.dark .mobile-drawer { background: #111827; border-left-color: #374151; }
+.dark .mobile-drawer .menu-title { color: #9ca3af; }
+.dark .mobile-drawer .menu-links a { color: #e5e7eb; }
+.dark .mobile-drawer .menu-links a:hover { color: #60a5fa; }
+
+/* Lock scroll when menu open */
+body.no-scroll { overflow: hidden; }
+
 
