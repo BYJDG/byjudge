@@ -127,7 +127,91 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
         }
+        body { transition: background-color 0.2s ease, color 0.2s ease; }
+        html.dark { color-scheme: dark; background-color: #0b1220; }
+        /* Dark mode overrides */
+        .dark body { background-color: #0b1220; color: #e5e7eb; }
+        .dark header { background: rgba(17, 24, 39, 0.85); }
+        .dark .text-gray-900 { color: #f3f4f6 !important; }
+        .dark .text-gray-700 { color: #e5e7eb !important; }
+        .dark .text-gray-600 { color: #cbd5e1 !important; }
+        .dark .text-gray-500 { color: #9ca3af !important; }
+        .dark .text-gray-400 { color: #94a3b8 !important; }
+        .dark .bg-white { background-color: #111827 !important; }
+        .dark .bg-gray-50 { background-color: #0f172a !important; }
+        .dark .border-gray-200 { border-color: #374151 !important; }
+        .dark .dropdown-menu { background: #111827; border-color: #374151; }
+        .dark .dropdown-menu a { color: #e5e7eb; }
+        .dark .dropdown-menu a:hover { background-color: #1f2937; }
+        .dark .feature-card { background-color: #0f172a; border-color: #1f2937; }
+        .dark .payment-card { background-color: #0b1220; color: #e5e7eb; }
+        .dark #mobileMenu { background-color: #111827; }
+        .dark footer { background-color: #0b0f1a; }
     </style>
+    <script>
+        // Apply initial theme ASAP
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+
+        // Theme toggle
+        (function () {
+            const root = document.documentElement;
+            const desktopBtn = document.getElementById('themeToggleDesktop');
+            const mobileBtn = document.getElementById('themeToggleMobile');
+            const buttons = [desktopBtn, mobileBtn].filter(Boolean);
+
+            const applyIconState = () => {
+                const isDark = root.classList.contains('dark');
+                buttons.forEach((btn) => {
+                    const sun = btn.querySelector('.icon-sun');
+                    const moon = btn.querySelector('.icon-moon');
+                    if (!sun || !moon) return;
+                    sun.classList.toggle('hidden', isDark);
+                    moon.classList.toggle('hidden', !isDark);
+                });
+            };
+
+            const setTheme = (mode) => {
+                if (mode === 'dark') root.classList.add('dark');
+                else root.classList.remove('dark');
+                try { localStorage.setItem('theme', mode); } catch (e) {}
+                applyIconState();
+            };
+
+            const toggleTheme = () => {
+                const isDark = root.classList.contains('dark');
+                setTheme(isDark ? 'light' : 'dark');
+            };
+
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', (e) => { e.stopPropagation(); toggleTheme(); });
+            });
+
+            // Initialize icons for current theme
+            applyIconState();
+
+            // Follow system preference if user hasn't chosen
+            try {
+                const stored = localStorage.getItem('theme');
+                if (!stored && window.matchMedia) {
+                    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+                    const onChange = (e) => setTheme(e.matches ? 'dark' : 'light');
+                    if (mq.addEventListener) mq.addEventListener('change', onChange);
+                    else if (mq.addListener) mq.addListener(onChange);
+                }
+            } catch (e) {}
+
+            // Expose to inline onclick for safety
+            window.toggleTheme = toggleTheme;
+        })();
+    </script>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
@@ -138,23 +222,35 @@
                     <img src="logo/logo.jpg" alt="ByJudge Store Logo" class="w-10 h-10 rounded-lg object-cover" />
                     <span class="text-xl font-bold text-gray-900">ByJudge Store</span>
                 </a>
-                <nav class="hidden md:flex space-x-8">
-                    <div class="relative dropdown">
-                        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
-                        <div class="dropdown-menu">
-                            <a href="#valorant" class="hover:text-blue-600">Valorant External</a>
-                            <a href="#wolftü" class="hover:text-blue-600">Wolftü Premium</a>
-                            <a href="#cs2" class="hover:text-blue-600">CS2 Premium</a>
-                            <a href="#zula-titanware" class="hover:text-blue-600">Zula Titanware</a>
-                            <a href="#zula-legendware" class="hover:text-blue-600">Zula Legendware</a>
+                <div class="flex items-center space-x-3">
+                    <nav class="hidden md:flex space-x-8">
+                        <div class="relative dropdown">
+                            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
+                            <div class="dropdown-menu">
+                                <a href="#valorant" class="hover:text-blue-600">Valorant External</a>
+                                <a href="#wolftü" class="hover:text-blue-600">Wolftü Premium</a>
+                                <a href="#cs2" class="hover:text-blue-600">CS2 Premium</a>
+                                <a href="#zula-titanware" class="hover:text-blue-600">Zula Titanware</a>
+                                <a href="#zula-legendware" class="hover:text-blue-600">Zula Legendware</a>
+                            </div>
                         </div>
-                    </div>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
-                </nav>
-                <!-- Mobile menu button -->
-                <button id="mobileMenuButton" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
+                    </nav>
+                    <!-- Theme toggle (desktop) -->
+                    <button id="themeToggleDesktop" onclick="window.toggleTheme && window.toggleTheme()" class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-200 text-gray-700 hover:text-blue-600 hover:border-blue-300 focus:outline-none" aria-label="Tema Değiştir">
+                        <i class="fas fa-sun icon-sun"></i>
+                        <i class="fas fa-moon icon-moon hidden"></i>
+                    </button>
+                    <!-- Theme toggle (mobile) -->
+                    <button id="themeToggleMobile" onclick="window.toggleTheme && window.toggleTheme()" class="md:hidden items-center justify-center w-9 h-9 rounded-md border border-gray-200 text-gray-700 hover:text-blue-600 hover:border-blue-300 focus:outline-none" aria-label="Tema Değiştir">
+                        <i class="fas fa-sun icon-sun"></i>
+                        <i class="fas fa-moon icon-moon hidden"></i>
+                    </button>
+                    <!-- Mobile menu button -->
+                    <button id="mobileMenuButton" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
         <!-- Mobile menu panel -->
@@ -824,4 +920,3 @@
     </script>
 </body>
 </html>
-
