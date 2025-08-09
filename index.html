@@ -151,6 +151,25 @@
                     </div>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
                 </nav>
+                <!-- Mobile menu button -->
+                <button id="mobileMenuButton" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu panel -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-2">
+                <div class="text-gray-500 text-xs uppercase tracking-wider">Ürünler</div>
+                <div class="grid grid-cols-1 gap-1">
+                    <a href="#valorant" class="block py-2 text-gray-700 hover:text-blue-600">Valorant External</a>
+                    <a href="#wolfteam" class="block py-2 text-gray-700 hover:text-blue-600">Wolfteam Premium</a>
+                    <a href="#cs2" class="block py-2 text-gray-700 hover:text-blue-600">CS2 Premium</a>
+                    <a href="#zula-titanware" class="block py-2 text-gray-700 hover:text-blue-600">Zula Titanware</a>
+                    <a href="#zula-legendware" class="block py-2 text-gray-700 hover:text-blue-600">Zula Legendware</a>
+                </div>
+                <div class="pt-2 border-t border-gray-200"></div>
+                <a href="#contact" class="block py-2 font-medium text-gray-700 hover:text-blue-600">İletişim</a>
             </div>
         </div>
     </header>
@@ -759,6 +778,49 @@
                 closePayment();
             }
         });
+
+        // Mobile menu toggle
+        (function () {
+            const menuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!menuButton || !mobileMenu) return;
+
+            const toggleMenu = () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                menuButton.setAttribute('aria-expanded', String(isHidden));
+                // Toggle icon (bars <-> times)
+                const icon = menuButton.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars', !isHidden);
+                    icon.classList.toggle('fa-times', isHidden);
+                }
+            };
+
+            menuButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Close when clicking a link inside the menu
+            mobileMenu.addEventListener('click', (e) => {
+                const target = e.target;
+                if (target && target.tagName === 'A') {
+                    if (!mobileMenu.classList.contains('hidden')) toggleMenu();
+                }
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    const isClickInsideMenu = mobileMenu.contains(e.target);
+                    const isClickOnButton = menuButton.contains(e.target);
+                    if (!isClickInsideMenu && !isClickOnButton) {
+                        toggleMenu();
+                    }
+                }
+            });
+        })();
     </script>
 </body>
 </html>
