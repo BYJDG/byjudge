@@ -76,54 +76,6 @@ document.addEventListener('click', function (event) {
   });
 })();
 
-// Theme toggle
-(function () {
-  const root = document.documentElement;
-  const desktopBtn = document.getElementById('themeToggleDesktop');
-  const mobileBtn = document.getElementById('themeToggleMobile');
-  const buttons = [desktopBtn, mobileBtn].filter(Boolean);
-
-  const applyIconState = () => {
-    const isDark = root.classList.contains('dark');
-    buttons.forEach((btn) => {
-      const sun = btn.querySelector('.icon-sun');
-      const moon = btn.querySelector('.icon-moon');
-      if (!sun || !moon) return;
-      sun.classList.toggle('hidden', isDark);
-      moon.classList.toggle('hidden', !isDark);
-    });
-  };
-
-  const setTheme = (mode) => {
-    if (mode === 'dark') root.classList.add('dark');
-    else root.classList.remove('dark');
-    try { localStorage.setItem('theme', mode); } catch (e) {}
-    applyIconState();
-  };
-
-  const toggleTheme = () => {
-    const isDark = root.classList.contains('dark');
-    setTheme(isDark ? 'light' : 'dark');
-  };
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', (e) => { e.stopPropagation(); toggleTheme(); });
-  });
-
-  applyIconState();
-
-  try {
-    const stored = localStorage.getItem('theme');
-    if (!stored && window.matchMedia) {
-      const mq = window.matchMedia('(prefers-color-scheme: dark)');
-      const onChange = (e) => setTheme(e.matches ? 'dark' : 'light');
-      if (mq.addEventListener) mq.addEventListener('change', onChange);
-      else if (mq.addListener) mq.addListener(onChange);
-    }
-  } catch (e) {}
-
-  // Expose globally for inline fallback (if any)
-  window.toggleTheme = toggleTheme;
-})();
+// Theme toggle removed
 
 

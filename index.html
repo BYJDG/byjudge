@@ -18,6 +18,8 @@
             } catch (e) {}
         })();
 
+        // Theme toggle removed
+
         
     </script>
 </head>
@@ -44,16 +46,6 @@
                         </div>
                         <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
                     </nav>
-                    <!-- Theme toggle (desktop) -->
-                    <button id="themeToggleDesktop" onclick="window.toggleTheme && window.toggleTheme()" class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-md border border-gray-200 text-gray-700 hover:text-blue-600 hover:border-blue-300 focus:outline-none" aria-label="Tema Değiştir">
-                        <i class="fas fa-sun icon-sun"></i>
-                        <i class="fas fa-moon icon-moon hidden"></i>
-                    </button>
-                    <!-- Theme toggle (mobile) -->
-                    <button id="themeToggleMobile" onclick="window.toggleTheme && window.toggleTheme()" class="md:hidden items-center justify-center w-9 h-9 rounded-md border border-gray-200 text-gray-700 hover:text-blue-600 hover:border-blue-300 focus:outline-none" aria-label="Tema Değiştir">
-                        <i class="fas fa-sun icon-sun"></i>
-                        <i class="fas fa-moon icon-moon hidden"></i>
-                    </button>
                     <!-- Mobile menu button -->
                     <button id="mobileMenuButton" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
                         <i class="fas fa-bars text-2xl"></i>
@@ -89,6 +81,9 @@
                 ByJudge Store, oyun severler için en güncel ve güvenilir dijital ürünleri sunar. 
                 Valorant, CS2, Zula ve Wolftü için premium çözümlerle rekabette öne geçin.
             </p>
+            <div class="mt-2">
+                <a href="https://t.me/byjudgeguvence" target="_blank" class="inline-flex items-center text-sm bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200 hover:bg-blue-100">Güvence Kanalımız</a>
+            </div>
             
                     <div class="dropdown-menu mt-2 w-48 left-1/2 transform -translate-x-1/2">
                         <a href="#valorant" class="hover:text-blue-600">Valorant External</a>
@@ -109,14 +104,24 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     Neden ByJudge Store?
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Müşteri memnuniyetini her şeyin üzerinde tutan profesyonel ekibimiz
-                </p>
+                <div class="max-w-3xl mx-auto space-y-3">
+                    <p class="text-xl text-gray-700">
+                        Müşteri memnuniyeti her zaman en üst düzeyde tutulur. Satın alma öncesi ve sonrası
+                        hızlı, şeffaf ve çözüm odaklı destek sunarız.
+                    </p>
+                    <p class="text-base text-gray-600">
+                        Güven için ayrı bir doğrulama kanalımız da var. 
+                        <a href="https://t.me/byjudgeguvence" target="_blank" class="text-blue-600 font-semibold underline">Güvence Kanalımız</a>
+                    </p>
+                </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="feature-card bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6 text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Güvenlik</h3>
                     <p class="text-gray-600">
@@ -124,8 +129,10 @@
                     </p>
                 </div>
                 <div class="feature-card bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6">
-                        <i class="fas fa-bolt text-purple-600 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6 text-purple-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Hız</h3>
                     <p class="text-gray-600">
@@ -133,8 +140,12 @@
                     </p>
                 </div>
                 <div class="feature-card bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6">
-                        <i class="fas fa-headset text-green-600 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 10a9 9 0 0118 0v4a3 3 0 01-3 3h-1"></path>
+                            <path d="M7 17H6a3 3 0 01-3-3v-4"></path>
+                            <rect x="9" y="17" width="6" height="3" rx="1"></rect>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Destek</h3>
                     <p class="text-gray-600">
@@ -485,6 +496,9 @@
     <!-- Payment Modal -->
     <div id="paymentModal" class="payment-modal">
         <div class="payment-card">
+            <a href="https://t.me/byjudgeguvence" target="_blank" class="absolute top-4 right-14 text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200 hover:bg-blue-100">
+                Güvence Kanalımız
+            </a>
             <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePayment()">
                 <i class="fas fa-times text-2xl"></i>
             </button>
@@ -635,7 +649,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 space-y-2">
+                <div>
+                    <a href="https://t.me/byjudgeguvence" target="_blank" class="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 underline">Güvence Kanalımız</a>
+                </div>
                 <p>&copy; 2025 ByJudge Store. Tüm hakları saklıdır.</p>
             </div>
         </div>
