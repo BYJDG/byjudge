@@ -45,14 +45,15 @@ document.addEventListener('click', function (event) {
 
   const toggleMenu = () => {
     const isOpen = mobileMenu.classList.contains('open');
-    mobileMenu.classList.toggle('open');
-    document.body.classList.toggle('no-scroll');
-    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    const nextIsOpen = !isOpen;
+    mobileMenu.classList.toggle('open', nextIsOpen);
+    document.body.classList.toggle('no-scroll', nextIsOpen);
+    menuButton.setAttribute('aria-expanded', String(nextIsOpen));
     const iconMenu = menuButton.querySelector('.icon-menu');
     const iconClose = menuButton.querySelector('.icon-close');
     if (iconMenu && iconClose) {
-      iconMenu.classList.toggle('hidden', isOpen);
-      iconClose.classList.toggle('hidden', !isOpen);
+      iconMenu.classList.toggle('hidden', nextIsOpen);
+      iconClose.classList.toggle('hidden', !nextIsOpen);
     }
   };
 
