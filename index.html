@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByJudge Store - Dijital Ürün Satın Al</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            min-width: 200px;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: background-color 0.2s ease;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .payment-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 10% auto;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .copy-btn {
+            background: #6366f1;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        .bank-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+        .product-dropdown {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: inline-block;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23667eea' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .category-section {
+            padding: 5rem 0;
+        }
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="flex items-center space-x-2">
+                    <img src="logo/logo.jpg" alt="ByJudge Store Logo" class="w-10 h-10 rounded-lg object-cover" />
+                    <span class="text-xl font-bold text-gray-900">ByJudge Store</span>
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <div class="relative dropdown">
+                        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
+                        <div class="dropdown-menu">
+                            <a href="#valorant" class="hover:text-blue-600">Valorant External</a>
+                            <a href="#wolfteam" class="hover:text-blue-600">Wolfteam Premium</a>
+                            <a href="#cs2" class="hover:text-blue-600">CS2 Premium</a>
+                            <a href="#zula-titanware" class="hover:text-blue-600">Zula Titanware</a>
+                            <a href="#zula-legendware" class="hover:text-blue-600">Zula Legendware</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Anasayfa) -->
+    <section id="home" class="hero-section gradient-bg">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                Oyun Deneyiminizi Üst Seviyeye Taşıyın
+            </h1>
+            <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+                ByJudge Store, oyun severler için en güncel ve güvenilir dijital ürünleri sunar. 
+                Valorant, CS2, Zula ve Wolfteam için premium çözümlerle rekabette öne geçin.
+            </p>
+            
+                    <div class="dropdown-menu mt-2 w-48 left-1/2 transform -translate-x-1/2">
+                        <a href="#valorant" class="hover:text-blue-600">Valorant External</a>
+                        <a href="#wolfteam" class="hover:text-blue-600">Wolfteam Premium</a>
+                        <a href="#cs2" class="hover:text-blue-600">CS2 Premium</a>
+                        <a href="#zula-titanware" class="hover:text-blue-600">Zula Titanware</a>
+                        <a href="#zula-legendware" class="hover:text-blue-600">Zula Legendware</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Neden ByJudge Store?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Müşteri memnuniyetini her şeyin üzerinde tutan profesyonel ekibimiz
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Güvenlik</h3>
+                    <p class="text-gray-600">
+                        Tüm ürünlerimiz güvenlik testlerinden geçmiştir. Hesap güvenliğiniz bizim için önceliklidir.
+                    </p>
+                </div>
+                <div class="feature-card bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Hız</h3>
+                    <p class="text-gray-600">
+                        Satın alma işleminden sonra ürünleriniz anında teslim edilir. Bekleme süresi yok!
+                    </p>
+                </div>
+                <div class="feature-card bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Destek</h3>
+                    <p class="text-gray-600">
+                        7/24 aktif müşteri desteği ile her türlü sorunuzda yanınızdayız.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valorant External Ürünleri -->
+    <section id="valorant" class="category-section bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Valorant External Ürünleri
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    En iyi Valorant deneyimi için özel olarak tasarlanmış ürünler
+                </p>
+            </div>
+            <div class="product-grid">
+                <!-- Valorant External Ürünleri -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">1 Gün</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">1 Day External</h3>
+                        <p class="text-gray-600 mb-4">Günlük 7$ (280₺)</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">7$ (280₺)</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('1 Day External', '7$', '280₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">3 Gün</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">3 Days External</h3>
+                        <p class="text-gray-600 mb-4">15$ (600₺)</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">15$ (600₺)</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('3 Days External', '15$', '600₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-indigo-500 to-blue-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Haftalık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Weekly External</h3>
+                        <p class="text-gray-600 mb-4">25$ (1000₺)</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">25$ (1000₺)</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Weekly External', '25$', '1000₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-blue-600 to-teal-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Aylık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Monthly External</h3>
+                        <p class="text-gray-600 mb-4">50$ (2000₺)</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">50$ (2000₺)</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Monthly External', '50$', '2000₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-teal-500 to-green-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Sınırsız</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Unlimited External</h3>
+                        <p class="text-gray-600 mb-4">115$ (4600₺)</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">115$ (4600₺)</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Unlimited External', '115$', '4600₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wolfteam Premium Ürünleri -->
+    <section id="wolfteam" class="category-section bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Wolfteam Premium Ürünleri
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Wolfteam'de üstün performans için premium çözümler
+                </p>
+            </div>
+            <div class="product-grid">
+                <!-- Wolfteam Premium Ürünleri -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Premium</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Wolfteam Premium</h3>
+                        <p class="text-gray-600 mb-4">Tek Seferlik 250₺</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">250₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Wolfteam Premium', '250₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CS2 Premium Ürünleri -->
+    <section id="cs2" class="category-section bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    CS2 Premium Ürünleri
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Counter-Strike 2'de rakiplerinize üstünlük sağlayın
+                </p>
+            </div>
+            <div class="product-grid">
+                <!-- CS2 Premium Ürünleri -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Haftalık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">CS2 Premium (Haftalık)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 7 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">410₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('CS2 Premium (Haftalık)', '410₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Aylık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">CS2 Premium (Aylık)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 30 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">820₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('CS2 Premium (Aylık)', '820₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zula Titanware Ürünleri -->
+    <section id="zula-titanware" class="category-section bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Zula Titanware Ürünleri
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Zula'da üstün performans için özel çözümler
+                </p>
+            </div>
+            <div class="product-grid">
+                <!-- Zula Titanware Ürünleri -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-green-500 to-blue-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Haftalık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zula Titanware (Haftalık)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 7 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">300₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Zula Titanware (Haftalık)', '300₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-blue-500 to-green-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Aylık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zula Titanware (Aylık)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 30 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">600₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Zula Titanware (Aylık)', '600₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zula Legendware Ürünleri -->
+    <section id="zula-legendware" class="category-section bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Zula Legendware Ürünleri
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Zula'da efsanevi performans için premium çözümler
+                </p>
+            </div>
+            <div class="product-grid">
+                <!-- Zula Legendware Ürünleri -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Günlük</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zula Legendware (Günlük)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 1 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">140₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Zula Legendware (Günlük)', '140₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-pink-500 to-purple-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Haftalık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zula Legendware (Haftalık)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 7 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">320₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Zula Legendware (Haftalık)', '320₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-purple-600 to-indigo-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">2 Hafta</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zula Legendware (2 Hafta)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 14 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">520₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Zula Legendware (2 Hafta)', '520₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gradient-to-r from-indigo-600 to-blue-600 h-48 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">Aylık</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zula Legendware (Aylık)</h3>
+                        <p class="text-gray-600 mb-4">Tam erişim, 30 gün</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">700₺</span>
+                            <button 
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                onclick="showPayment('Zula Legendware (Aylık)', '700₺')"
+                            >
+                                Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-card">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePayment()">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <h3 class="text-2xl font-bold mb-4">Havale/EFT Ödemesi</h3>
+            <div id="productInfo" class="mb-4 font-semibold"></div>
+            
+            <div class="text-red-600 font-bold mb-4">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                ÖNEMLİ: Açıklamaya numarayı yazmazsanız eğer para düşmez!
+            </div>
+            
+            <div class="mb-6">
+                <strong>Ödeme Açıklaması:</strong>
+                <div class="flex items-center mt-2">
+                    <span class="text-xl font-bold">1869099103</span>
+                    <button class="copy-btn ml-2" onclick="copyText('1869099103')">
+                        <i class="fas fa-copy mr-1"></i> Kopyala
+                    </button>
+                </div>
+                <div class="text-sm text-gray-600 mt-1">
+                    <strong>Alıcı:</strong> Papara elektronik para A.Ş
+                </div>
+            </div>
+
+            <h4 class="text-lg font-bold mb-4">IBAN Numaraları</h4>
+            <div class="space-y-4">
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Garanti Bankası</strong>
+                        <button class="copy-btn" onclick="copyText('TR80 0006 2000 4220 0006 2942 17')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR80 0006 2000 4220 0006 2942 17</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Finansbank</strong>
+                        <button class="copy-btn" onclick="copyText('TR77 0001 1000 0000 0064 0811 05')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR77 0001 1000 0000 0064 0811 05</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Yapıkredi</strong>
+                        <button class="copy-btn" onclick="copyText('TR12 0006 7010 0000 0047 8493 03')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR12 0006 7010 0000 0047 8493 03</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>İş Bankası</strong>
+                        <button class="copy-btn" onclick="copyText('TR53 0006 4000 0011 0593 3536 81')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR53 0006 4000 0011 0593 3536 81</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Vakıfbank</strong>
+                        <button class="copy-btn" onclick="copyText('TR37 0001 5001 5800 7304 6924 31')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR37 0001 5001 5800 7304 6924 31</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Ziraat Bankası</strong>
+                        <button class="copy-btn" onclick="copyText('TR45 0001 0025 4674 7374 7150 01')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR45 0001 0025 4674 7374 7150 01</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Akbank</strong>
+                        <button class="copy-btn" onclick="copyText('TR15 0004 6008 6688 8000 1259 32')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR15 0004 6008 6688 8000 1259 32</div>
+                </div>
+                <div class="bank-item">
+                    <div class="flex justify-between items-center">
+                        <strong>Halkbank</strong>
+                        <button class="copy-btn" onclick="copyText('TR83 0001 2009 6260 0010 2607 99')">
+                            <i class="fas fa-copy mr-1"></i> Kopyala
+                        </button>
+                    </div>
+                    <div class="text-lg font-mono">TR83 0001 2009 6260 0010 2607 99</div>
+                </div>
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4 mt-6">
+                Ödeme yaptıktan sonra lütfen ödeme tutarını ve sipariş bilgilerinizi 
+                <a href="https://t.me/byjudgee" target="_blank" class="text-blue-600 underline">@byjudgee</a>'ye bildirin.
+            </p>
+
+            <button 
+                class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-200"
+                onclick="handlePaymentConfirmation()"
+            >
+                Ödeme Yaptım
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="logo/logo2.jpg" alt="ByJudge Store Logo" class="w-8 h-8 rounded-lg object-cover" />
+                        <span class="text-xl font-bold">ByJudge Store</span>
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Oyun deneyiminizi en üst seviyeye çıkarmak için premium dijital ürünler sunuyoruz.
+                    </p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#valorant" class="hover:text-white transition-colors">Valorant External</a></li>
+                        <li><a href="#wolfteam" class="hover:text-white transition-colors">Wolfteam Premium</a></li>
+                        <li><a href="#cs2" class="hover:text-white transition-colors">CS2 Premium</a></li>
+                        <li><a href="#zula-titanware" class="hover:text-white transition-colors">Zula Titanware</a></li>
+                        <li><a href="#zula-legendware" class="hover:text-white transition-colors">Zula Legendware</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">İletişim</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>
+                            <a href="https://t.me/byjudgee" target="_blank" class="flex items-center hover:text-white transition-colors">
+                                <i class="fab fa-telegram-plane mr-2"></i> Telegram Hesabı (@byjudgee)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/judgehack" target="_blank" class="flex items-center hover:text-white transition-colors">
+                                <i class="fab fa-telegram mr-2"></i> Telegram Kanalı (@judgehack)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ByJudge Store. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedProduct = '';
+        let selectedPrice = '';
+
+        // IBAN modalını göster
+        function showPayment(product, price) {
+            selectedProduct = product;
+            selectedPrice = price;
+            document.getElementById('productInfo').innerHTML = `
+                <strong>Ürün:</strong> ${product} (${price})
+            `;
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        // IBAN modalını kapat
+        function closePayment() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        // Metni kopyala
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Başarıyla kopyalandı!');
+            }).catch(err => {
+                console.error('Kopyalama hatası:', err);
+            });
+        }
+
+        // Ödeme onaylama
+        function handlePaymentConfirmation() {
+            closePayment();
+            window.open('https://t.me/byjudgee', '_blank');
+        }
+
+        // Modal dışında tıklayınca kapat
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('paymentModal');
+            if (event.target === modal) {
+                closePayment();
+            }
+        });
+    </script>
+</body>
+</html>
