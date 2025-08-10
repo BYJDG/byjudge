@@ -1,3 +1,5 @@
+/* SON GÜNCELLEME: Şeffaflık ve menü animasyon sorunları için tüm düzeltmeleri içerir. */
+
 /* Base */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -160,7 +162,7 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
 .dark .dropdown-menu a:hover { background-color: #1f2937; }
 .dark .feature-card { background-color: #0f172a; border-color: #1f2937; }
 .dark .payment-card { background-color: #0b1220; color: #e5e7eb; }
-.dark #mobileMenu { background-color: #111827; }
+/* .dark #mobileMenu kuralı çakışma yarattığı için kaldırıldı. */
 .dark footer { background-color: #0b0f1a; }
 .dark .hero-section.hero-with-image {
   background-image: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.55)), url('logo/logo3.png');
@@ -174,11 +176,14 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background-color: rgba(23, 27, 38, 0.3);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   z-index: 60;
   display: none;
 }
 .mobile-menu-overlay.open { display: block; }
+
 .mobile-drawer {
   position: fixed;
   top: 0;
@@ -193,10 +198,15 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
   transition: transform 0.25s ease;
   padding: 16px 20px;
 }
-.mobile-menu-overlay.open .mobile-drawer { transform: translateX(0); }
+.mobile-menu-overlay.open .mobile-drawer {
+  transform: translateX(0);
+}
+
 .mobile-drawer .menu-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: .06em; color: #6b7280; margin: 4px 0 10px; }
 .mobile-drawer .menu-links a { display: block; padding: 12px 0; color: #374151; font-size: 1.0625rem; text-decoration: none; }
 .mobile-drawer .menu-links a:hover { color: #2563eb; }
+
+/* Dark mode still applies to the drawer, but not the overlay */
 .dark .mobile-drawer { background: #111827; border-left-color: #374151; }
 .dark .mobile-drawer .menu-title { color: #9ca3af; }
 .dark .mobile-drawer .menu-links a { color: #e5e7eb; }
@@ -204,5 +214,3 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
 
 /* Lock scroll when menu open */
 body.no-scroll { overflow: hidden; }
-
-
