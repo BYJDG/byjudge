@@ -303,7 +303,7 @@
             <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePayment()"><i class="fas fa-times text-2xl"></i></button>
             <h3 class="text-2xl font-bold mb-4">Havale/EFT Ödemesi</h3>
             <div id="productInfo" class="mb-4 font-semibold"></div>
-            <div class="text-red-600 font-bold mb-4"><i class="fas fa-exclamation-triangle mr-2"></i>ÖNEMLİ: Açıklamaya numarayı yazmazsanız eğer para düşmez!</div>
+            <div class="text-red-600 font-bold mb-4"><i class="fas fa-exclamation-triangle mr-2"></i>ÖNEMLİ: Açıklama kısmı zorunludur yazılmadığı sürece tarafımıza iletilmez!</div>
             <div class="mb-6">
                 <strong>Ödeme Açıklaması:</strong>
                 <div class="flex items-center mt-2">
@@ -314,7 +314,7 @@
             </div>
             <h4 class="text-lg font-bold mb-4">IBAN Numaraları</h4>
             <div class="space-y-4">
-                <div class="bank-item"><div class="flex justify-between items-center"><strong>Garanti Bankası</strong><button class="copy-btn" onclick="copyText('TR10 0006 2000 9100 0006 9697 09')"><i class="fas fa-copy mr-1"></i> Kopyala</button></div><div class="text-lg font-mono">TR10 0006 2000 9100 0006 9697 09</div></div>
+                <div class="bank-item"><div class="flex justify-between items-center"><strong>İban Numarası</strong><button class="copy-btn" onclick="copyText('TR10 0006 2000 9100 0006 9697 09')"><i class="fas fa-copy mr-1"></i> Kopyala</button></div><div class="text-lg font-mono">TR10 0006 2000 9100 0006 9697 09</div></div>
             </div>
             <p class="text-sm text-gray-600 mb-4 mt-6">Ödeme yaptıktan sonra lütfen ödeme tutarını ve sipariş bilgilerinizi <a href="https://t.me/byjudgee" target="_blank" class="text-blue-600 underline">@byjudgee</a>'ye bildirin.</p>
             <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-200" onclick="handlePaymentConfirmation()">Ödeme Yaptım</button>
@@ -356,4 +356,5 @@
     <script src="main.js" defer></script>
 </body>
 </html>
+
 
