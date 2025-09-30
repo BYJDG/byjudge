@@ -15,6 +15,24 @@ function closePayment() {
   document.getElementById('paymentModal').style.display = 'none';
 }
 
+// Ban Info Modal functions
+function showBanInfo() {
+  document.getElementById('banInfoModal').style.display = 'block';
+}
+
+function closeBanInfo() {
+  document.getElementById('banInfoModal').style.display = 'none';
+}
+
+// Bypass Features Modal functions
+function showBypassFeatures() {
+  document.getElementById('bypassFeaturesModal').style.display = 'block';
+}
+
+function closeBypassFeatures() {
+  document.getElementById('bypassFeaturesModal').style.display = 'none';
+}
+
 function copyText(text) {
   navigator.clipboard.writeText(text).then(() => {
     alert('Başarıyla kopyalandı!');
@@ -30,9 +48,18 @@ function handlePaymentConfirmation() {
 
 // Close modal when clicking outside
 document.addEventListener('click', function (event) {
-  const modal = document.getElementById('paymentModal');
-  if (event.target === modal) {
+  const paymentModal = document.getElementById('paymentModal');
+  const banInfoModal = document.getElementById('banInfoModal');
+  const bypassFeaturesModal = document.getElementById('bypassFeaturesModal');
+  
+  if (event.target === paymentModal) {
     closePayment();
+  }
+  if (event.target === banInfoModal) {
+    closeBanInfo();
+  }
+  if (event.target === bypassFeaturesModal) {
+    closeBypassFeatures();
   }
 });
 
