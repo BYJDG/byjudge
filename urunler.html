@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ürünler - ByJudge Store</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" type="image/png" href="/logo/logo3.png">
-    <link rel="apple-touch-icon" href="/logo/logo3.png">
-    <link rel="icon" type="image/jpeg" href="/logo/logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo/logo3.png">
+    <link rel="apple-touch-icon" href="logo/logo3.png">
+    <link rel="icon" type="image/jpeg" href="logo/logo.jpg">
     <meta name="theme-color" content="#0b1220">
+    <script>
+        // Apply initial theme ASAP
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body class="bg-gray-50">
     <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="flex items-center space-x-2">
-                    <img src="/logo/logo.jpg" alt="ByJudge Store Logo" class="w-10 h-10 rounded-lg object-cover" />
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="logo/logo.jpg" alt="ByJudge Store Logo" class="w-10 h-10 rounded-lg object-cover" />
                     <span class="text-xl font-bold text-gray-900">ByJudge Store</span>
                 </a>
                 <div class="flex items-center space-x-3">
+                    <button id="themeToggle" class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Tema Değiştir">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="sunIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" class="hidden"></path>
+                            <path id="moonIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
                     <nav class="hidden space-x-8">
-                        <a href="/urunler" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
-                        <a href="/sss" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">SSS</a>
+                        <a href="urunler.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
+                        <a href="sss.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">SSS</a>
                         <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
                     </nav>
                     <button id="mobileMenuButton" class="text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
@@ -47,8 +66,8 @@
                     </button>
                 </div>
                 <div class="menu-links">
-                    <a href="/">Ana Sayfa</a>
-                    <a href="/sss">Sıkça Sorulan Sorular</a>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="sss.html">Sıkça Sorulan Sorular</a>
                     <a href="https://t.me/byjudgeguvence" target="_blank">Güvence Kanalımız</a>
                     <a href="#contact">İletişim</a>
                 </div>
@@ -72,7 +91,7 @@
                     <p class="text-gray-600 mb-4">Tam erişim, 7 gün</p>
                     <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-blue-600">350₺</span>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('PUBG Mobile Premium (Haftalık)', '350₺')">Satın Al</button>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('PUBG Mobile Premium (Haftalık)', '350₺')">Satın Al</button>
                     </div>
                 </div>
             </div>
@@ -83,7 +102,7 @@
                     <p class="text-gray-600 mb-4">Tam erişim, 30 gün</p>
                     <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-blue-600">700₺</span>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('PUBG Mobile Premium (Aylık)', '700₺')">Satın Al</button>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('PUBG Mobile Premium (Aylık)', '700₺')">Satın Al</button>
                     </div>
                 </div>
             </div>
@@ -109,7 +128,7 @@
                         <p class="text-gray-600 mb-4">Günlük 7$ (280₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">7$ (280₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('1 Day External', '7$', '280₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('1 Day External', '7$', '280₺')">Satın Al</button>
                         </div>
                     </div>
                 </div> 
@@ -120,7 +139,7 @@
                         <p class="text-gray-600 mb-4">15$ (600₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">15$ (600₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('3 Days External', '15$', '600₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('3 Days External', '15$', '600₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -131,7 +150,7 @@
                         <p class="text-gray-600 mb-4">25$ (1000₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">25$ (1000₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('Weekly External', '25$', '1000₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Weekly External', '25$', '1000₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -142,7 +161,7 @@
                         <p class="text-gray-600 mb-4">50$ (2000₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">50$ (2000₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('Monthly External', '50$', '2000₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Monthly External', '50$', '2000₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -153,7 +172,7 @@
                         <p class="text-gray-600 mb-4">115$ (4600₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">115$ (4600₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('Unlimited External', '115$', '4600₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Unlimited External', '115$', '4600₺')">Satın Al</button>
                         </div>
                     </div>
                 </div> 
@@ -161,7 +180,7 @@
         </div>
     </section>
 
-<section id="valorant" class="category-section bg-gray-50">
+<section id="valorant-alpha" class="category-section bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="category-header">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -182,7 +201,7 @@
                         <p class="text-gray-600 mb-4">15$ (600₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">15$ (600₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('valorant TheAlpha', '15$', '600₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('valorant TheAlpha', '15$', '600₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -193,7 +212,7 @@
                         <p class="text-gray-600 mb-4">25$ (1000₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">25$ (1000₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('valorant TheAlpha', '25$', '1000₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('valorant TheAlpha', '25$', '1000₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -204,7 +223,7 @@
                         <p class="text-gray-600 mb-4">50$ (2000₺)</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">50$ (2000₺)</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('valorant TheAlpha', '50$', '2000₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('valorant TheAlpha', '50$', '2000₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -227,7 +246,7 @@
                         <p class="text-gray-600 mb-4">30 day 250₺</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">250₺</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('Wolftü Premium', '250₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Wolftü Premium', '250₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -249,7 +268,7 @@
                         <p class="text-gray-600 mb-4">Tam erişim, 7 gün</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">410₺</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('CS2 Premium (Haftalık)', '410₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('CS2 Premium (Haftalık)', '410₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -260,7 +279,7 @@
                         <p class="text-gray-600 mb-4">Tam erişim, 30 gün</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold text-blue-600">820₺</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue- transition-colors" onclick="showPayment('CS2 Premium (Aylık)', '820₺')">Satın Al</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('CS2 Premium (Aylık)', '820₺')">Satın Al</button>
                         </div>
                     </div>
                 </div>
@@ -369,14 +388,19 @@
                     <span class="text-xl font-bold">TAMİ7613912523622538</span>
                     <button class="copy-btn ml-2" onclick="copyText('TAMİ7613912523622538')"><i class="fas fa-copy mr-1"></i> Kopyala</button>
                 </div>
-                <div class="text-sm text-gray-600 mt-1"><strong>Alıcı:</strong>Garanti Ödeme ve Elektronik Para Hizmetleri A.Ş.</div>
+                <div class="text-sm text-gray-600 mt-1">
+                    <div class="flex items-center justify-between">
+                        <span><strong>Alıcı:</strong>Ad Soyad</span>
+                        <button class="copy-btn ml-2" onclick="copyText('Garanti Ödeme ve Elektronik Para Hizmetleri A.Ş.')"><i class="fas fa-copy mr-1"></i> Kopyala</button>
+                    </div>
+                </div>
             </div>
             <h4 class="text-lg font-bold mb-4">IBAN Numaraları</h4>
             <div class="space-y-4">
                 <div class="bank-item"><div class="flex justify-between items-center"><strong>İban Numarası</strong><button class="copy-btn" onclick="copyText('TR10 0006 2000 9100 0006 9697 09')"><i class="fas fa-copy mr-1"></i> Kopyala</button></div><div class="text-lg font-mono">TR10 0006 2000 9100 0006 9697 09</div></div>
             </div>
             <p class="text-sm text-gray-600 mb-4 mt-6">Ödeme yaptıktan sonra lütfen ödeme tutarını ve sipariş bilgilerinizi <a href="https://t.me/byjudgee" target="_blank" class="text-blue-600 underline">@byjudgee</a>'ye bildirin.</p>
-            <a href="/iletisim" class="block text-center w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-200">Ödeme Yaptım</a>
+            <a href="iletisim.html" class="block text-center w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-200">Ödeme Yaptım</a>
         </div>
     </div>
 
@@ -385,7 +409,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <img src="/logo/logo2.jpg" alt="ByJudge Store Logo" class="w-8 h-8 rounded-lg object-cover" />
+                        <img src="logo/logo2.jpg" alt="ByJudge Store Logo" class="w-8 h-8 rounded-lg object-cover" />
                         <span class="text-xl font-bold">ByJudge Store</span>
                     </div>
                     <p class="text-gray-400 mb-4 max-w-md">Oyun deneyiminizi en üst seviyeye çıkarmak için premium dijital ürünler sunuyoruz.</p>
@@ -401,7 +425,7 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Yardım</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/sss" class="flex items-center hover:text-white transition-colors">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="sss.html" class="flex items-center hover:text-white transition-colors">Sıkça Sorulan Sorular</a></li>
                         <li><a href="https://t.me/byjudgeguvence" target="_blank" class="flex items-center hover:text-white transition-colors">Güvence Kanalımız</a></li>
                     </ul>
                 </div>
@@ -421,7 +445,7 @@
         </div>
     </footer>
 
-    <script src="/main.js" defer></script>
+    <script src="main.js" defer></script>
 </body>
 </html>
 
