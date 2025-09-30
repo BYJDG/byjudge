@@ -81,6 +81,51 @@ document.addEventListener('click', function (event) {
   // No global document listener needed; overlay handles outside clicks
 })();
 
-// Theme toggle removed
+// Theme toggle functionality
+(function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const sunIcon = document.getElementById('sunIcon');
+  const moonIcon = document.getElementById('moonIcon');
+  
+  if (!themeToggle) return;
+  
+  // Get initial theme
+  const getTheme = () => {
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return stored === 'dark' || (!stored && prefersDark) ? 'dark' : 'light';
+  };
+  
+  // Apply theme
+  const applyTheme = (theme) => {
+    const isDark = theme === 'dark';
+    document.documentElement.classList.toggle('dark', isDark);
+    
+    if (sunIcon && moonIcon) {
+      sunIcon.style.display = isDark ? 'block' : 'none';
+      moonIcon.style.display = isDark ? 'none' : 'block';
+    }
+    
+    // Update meta theme-color
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.content = isDark ? '#0b1220' : '#ffffff';
+    }
+  };
+  
+  // Toggle theme
+  const toggleTheme = () => {
+    const currentTheme = getTheme();
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  };
+  
+  // Initialize theme
+  applyTheme(getTheme());
+  
+  // Add event listener
+  themeToggle.addEventListener('click', toggleTheme);
+})();
 
 
