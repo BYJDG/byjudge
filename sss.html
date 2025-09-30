@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sıkça Sorulan Sorular - ByJudge Store</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="logo/logo3.png">
     <link rel="apple-touch-icon" href="logo/logo3.png">
     <link rel="icon" type="image/jpeg" href="logo/logo.jpg">
     <meta name="theme-color" content="#0b1220">
+    <script>
+        // Apply initial theme ASAP
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <style>
         /* SSS Akordiyon ok stili ve daha iyi görünüm için */
         details > summary {
@@ -31,11 +44,17 @@
     <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
                     <img src="logo/logo.jpg" alt="ByJudge Store Logo" class="w-10 h-10 rounded-lg object-cover" />
                     <span class="text-xl font-bold text-gray-900">ByJudge Store</span>
                 </a>
                 <div class="flex items-center space-x-3">
+                    <button id="themeToggle" class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Tema Değiştir">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="sunIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" class="hidden"></path>
+                            <path id="moonIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
                     <nav class="hidden space-x-8">
                         <div class="relative dropdown">
                             <a href="urunler.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
@@ -66,7 +85,7 @@
                     </button>
                 </div>
                 <div class="menu-links">
-                    <a href="/">Ana Sayfa</a>
+                    <a href="index.html">Ana Sayfa</a>
                     <a href="urunler.html">Tüm Ürünler</a>
                     <a href="#contact">İletişim</a>
                     <a href="https://t.me/byjudgeguvence" target="_blank">Güvence Kanalımız</a>
@@ -138,12 +157,12 @@
                     </div>
                     <p class="text-gray-400 mb-4 max-w-md">Oyun deneyiminizi en üst seviyeye çıkarmak için premium dijital ürünler sunuyoruz.</p>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/urunler#pubg" class="hover:text-white transition-colors">pubg mobile</a></li>
-                        <li><a href="/urunler#valorant" class="hover:text-white transition-colors">Valorant External</a></li>
-                        <li><a href="/urunler#wolftü" class="hover:text-white transition-colors">Wolftü Premium</a></li>
-                        <li><a href="/urunler#cs2" class="hover:text-white transition-colors">CS2 Premium</a></li>
-                        <li><a href="/urunler#zula-titanware" class="hover:text-white transition-colors">Zula Titanware</a></li>
-                        <li><a href="/urunler#zula-legendware" class="hover:text-white transition-colors">Zula Legendware</a></li>
+                        <li><a href="urunler.html#pubg" class="hover:text-white transition-colors">pubg mobile</a></li>
+                        <li><a href="urunler.html#valorant" class="hover:text-white transition-colors">Valorant External</a></li>
+                        <li><a href="urunler.html#wolftü" class="hover:text-white transition-colors">Wolftü Premium</a></li>
+                        <li><a href="urunler.html#cs2" class="hover:text-white transition-colors">CS2 Premium</a></li>
+                        <li><a href="urunler.html#zula-titanware" class="hover:text-white transition-colors">Zula Titanware</a></li>
+                        <li><a href="urunler.html#zula-legendware" class="hover:text-white transition-colors">Zula Legendware</a></li>
                     </ul>
                 </div>
                 <div>
