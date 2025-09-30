@@ -160,7 +160,6 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
 .dark .dropdown-menu a:hover { background-color: #1f2937; }
 .dark .feature-card { background-color: #0f172a; border-color: #1f2937; }
 .dark .payment-card { background-color: #0b1220; color: #e5e7eb; }
-/* .dark #mobileMenu kuralı çakışma yarattığı için kaldırıldı. */
 .dark footer { background-color: #0b0f1a; }
 .dark .hero-section.hero-with-image {
   background-image: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.55)), url('logo/logo3.png');
@@ -169,6 +168,12 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
 .dark .hero-section.hero-with-image .hero-content p {
   color: #ffffff !important;
 }
+
+/* Theme toggle icon visibility */
+.dark #sunIcon { display: block; }
+.dark #moonIcon { display: none; }
+#sunIcon { display: none; }
+#moonIcon { display: block; }
 
 /* Mobile drawer menu */
 .mobile-menu-overlay {
