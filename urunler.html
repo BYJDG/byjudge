@@ -484,6 +484,38 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Zula Private -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gradient-to-r from-purple-500 to-pink-500 private-product">
+                    <div class="p-6 border-b bg-gradient-to-r from-purple-600 to-pink-600 text-white private-content">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold gradient-text">Zula Private</h3>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-300 text-sm font-semibold animate-pulse pulse-glow">ÖZEL HİLE</span>
+                                <span class="text-green-300 text-sm font-semibold animate-pulse">UNDETECTED/GÜNCEL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 private-content">
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 max-w-md mx-auto border border-purple-200">
+                            <div class="text-center mb-4">
+                                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-3 crown-float pulse-glow">
+                                    <i class="fas fa-crown text-white text-2xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Private Aylık</h4>
+                                <p class="text-gray-600 mb-4">Özel slot sistemi, 30 gün</p>
+                            </div>
+                            <div class="flex flex-col space-y-2 mb-4">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors" onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded text-sm hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg private-button" onclick="showPrivateFeatures()">Özel Özellikler</button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-purple-600">1000₺</span>
+                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg font-semibold private-button" onclick="showPayment('Zula Private (Aylık)', '1000₺')">Satın Al</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -535,6 +567,34 @@
             <h3 class="text-2xl font-bold mb-4">Diğer Hilelerden Farkı Ne?</h3>
             <div class="text-gray-700 mb-4">
                 <p class="mb-4">Bypass sizi emulatör yani bilgisayar oyuncusu olmanıza rağmen mobil yani telefon oyuncularıyla karşılaştırır sizi bir mobil gibi gösterir ve sistem banından korur. Gönül rahatlığıyla bütün özellikleri kullanabilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Private Features Modal -->
+    <div id="privateFeaturesModal" class="payment-modal">
+        <div class="payment-card">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePrivateFeatures()"><i class="fas fa-times text-2xl"></i></button>
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4">
+                    <i class="fas fa-crown text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Zula Private Özellikleri</h3>
+                <p class="text-gray-600">Premium slot sistemi ile güvenli deneyim</p>
+            </div>
+            <div class="text-gray-700 mb-4">
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-200 mb-4">
+                    <h4 class="font-bold text-purple-800 mb-2">🎯 Özel Slot Sistemi</h4>
+                    <p class="mb-3">Hilemiz özel slot mantığı ile çalışır ve sadece 15 kişi tarafından kullanılabilir. Bu sınırlı erişim sayesinde %100 güvence sağlar.</p>
+                </div>
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200 mb-4">
+                    <h4 class="font-bold text-green-800 mb-2">🛡️ Maksimum Güvenlik</h4>
+                    <p class="mb-3">Belli etmediğiniz sürece asla ban atmayan, yetkili banı dışında %100 bansız diyebileceğimiz ilk ve tek hile.</p>
+                </div>
+                <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-lg border border-blue-200">
+                    <h4 class="font-bold text-blue-800 mb-2">⭐ Premium Deneyim</h4>
+                    <p>Özel tasarım ve gelişmiş algoritmalar ile en üst düzey performans garantisi.</p>
+                </div>
             </div>
         </div>
     </div>
