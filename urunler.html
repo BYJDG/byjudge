@@ -389,37 +389,33 @@
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Zula'da üstün performans için premium çözümler</p>
             </div>
             <div class="space-y-8">
-                <!-- Zula Titanware -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="p-6 border-b">
+                <!-- Zula Private -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gradient-to-r from-purple-500 to-pink-500 private-product">
+                    <div class="p-6 border-b bg-gradient-to-r from-purple-600 to-pink-600 text-white private-content">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-2xl font-bold text-gray-900">Zula Titanware</h3>
-                            <span class="text-green-500 text-sm font-semibold animate-pulse">UNDETECTED/GÜNCEL</span>
+                            <h3 class="text-2xl font-bold gradient-text">Zula Private</h3>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-300 text-sm font-semibold animate-pulse pulse-glow">ÖZEL HİLE</span>
+                                <span class="text-green-300 text-sm font-semibold animate-pulse">UNDETECTED/GÜNCEL</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <img src="/zula/7zula.png" alt="Zula Titanware Ürün Resmi" class="w-full h-32 object-cover rounded-lg mb-3">
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Haftalık</h4>
-                            <p class="text-gray-600 mb-3">Tam erişim, 7 gün</p>
-                            <div class="flex flex-col space-y-2 mb-3">
+                    <div class="p-6 private-content">
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 max-w-md mx-auto border border-purple-200">
+                            <div class="text-center mb-4">
+                                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-3 crown-float pulse-glow">
+                                    <i class="fas fa-crown text-white text-2xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Private Aylık</h4>
+                                <p class="text-gray-600 mb-4">Özel slot sistemi, 30 gün</p>
+                            </div>
+                            <div class="flex flex-col space-y-2 mb-4">
                                 <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors" onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded text-sm hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg private-button" onclick="showPrivateFeatures()">Özel Özellikler</button>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-xl font-bold text-blue-600">400₺</span>
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Zula Titanware (Haftalık)', '400₺')">Satın Al</button>
-                            </div>
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <img src="/zula/30zula.png" alt="Zula Titanware Ürün Resmi" class="w-full h-32 object-cover rounded-lg mb-3">
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
-                            <p class="text-gray-600 mb-3">Tam erişim, 30 gün</p>
-                            <div class="flex flex-col space-y-2 mb-3">
-                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors" onclick="showBanInfo()">Ban Durumu Nedir?</button>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xl font-bold text-blue-600">640₺</span>
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Zula Titanware (Aylık)', '640₺')">Satın Al</button>
+                                <span class="text-2xl font-bold text-purple-600">1000₺</span>
+                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg font-semibold private-button" onclick="showPayment('Zula Private (Aylık)', '1000₺')">Satın Al</button>
                             </div>
                         </div>
                     </div>
@@ -485,33 +481,37 @@
                     </div>
                 </div>
 
-                <!-- Zula Private -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gradient-to-r from-purple-500 to-pink-500 private-product">
-                    <div class="p-6 border-b bg-gradient-to-r from-purple-600 to-pink-600 text-white private-content">
+                <!-- Zula Titanware -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6 border-b">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-2xl font-bold gradient-text">Zula Private</h3>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-yellow-300 text-sm font-semibold animate-pulse pulse-glow">ÖZEL HİLE</span>
-                                <span class="text-green-300 text-sm font-semibold animate-pulse">UNDETECTED/GÜNCEL</span>
-                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Zula Titanware</h3>
+                            <span class="text-green-500 text-sm font-semibold animate-pulse">UNDETECTED/GÜNCEL</span>
                         </div>
                     </div>
-                    <div class="p-6 private-content">
-                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 max-w-md mx-auto border border-purple-200">
-                            <div class="text-center mb-4">
-                                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-3 crown-float pulse-glow">
-                                    <i class="fas fa-crown text-white text-2xl"></i>
-                                </div>
-                                <h4 class="text-xl font-bold text-gray-900 mb-2">Private Aylık</h4>
-                                <p class="text-gray-600 mb-4">Özel slot sistemi, 30 gün</p>
-                            </div>
-                            <div class="flex flex-col space-y-2 mb-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <img src="/zula/7zula.png" alt="Zula Titanware Ürün Resmi" class="w-full h-32 object-cover rounded-lg mb-3">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Haftalık</h4>
+                            <p class="text-gray-600 mb-3">Tam erişim, 7 gün</p>
+                            <div class="flex flex-col space-y-2 mb-3">
                                 <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors" onclick="showBanInfo()">Ban Durumu Nedir?</button>
-                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded text-sm hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg private-button" onclick="showPrivateFeatures()">Özel Özellikler</button>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-purple-600">1000₺</span>
-                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg font-semibold private-button" onclick="showPayment('Zula Private (Aylık)', '1000₺')">Satın Al</button>
+                                <span class="text-xl font-bold text-blue-600">400₺</span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Zula Titanware (Haftalık)', '400₺')">Satın Al</button>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <img src="/zula/30zula.png" alt="Zula Titanware Ürün Resmi" class="w-full h-32 object-cover rounded-lg mb-3">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
+                            <p class="text-gray-600 mb-3">Tam erişim, 30 gün</p>
+                            <div class="flex flex-col space-y-2 mb-3">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors" onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-blue-600">640₺</span>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="showPayment('Zula Titanware (Aylık)', '640₺')">Satın Al</button>
                             </div>
                         </div>
                     </div>
