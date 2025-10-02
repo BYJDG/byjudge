@@ -33,6 +33,15 @@ function closeBypassFeatures() {
   document.getElementById('bypassFeaturesModal').style.display = 'none';
 }
 
+// Private Features Modal functions
+function showPrivateFeatures() {
+  document.getElementById('privateFeaturesModal').style.display = 'block';
+}
+
+function closePrivateFeatures() {
+  document.getElementById('privateFeaturesModal').style.display = 'none';
+}
+
 function copyText(text) {
   navigator.clipboard.writeText(text).then(() => {
     alert('Başarıyla kopyalandı!');
@@ -51,6 +60,7 @@ document.addEventListener('click', function (event) {
   const paymentModal = document.getElementById('paymentModal');
   const banInfoModal = document.getElementById('banInfoModal');
   const bypassFeaturesModal = document.getElementById('bypassFeaturesModal');
+  const privateFeaturesModal = document.getElementById('privateFeaturesModal');
   
   if (event.target === paymentModal) {
     closePayment();
@@ -60,6 +70,9 @@ document.addEventListener('click', function (event) {
   }
   if (event.target === bypassFeaturesModal) {
     closeBypassFeatures();
+  }
+  if (event.target === privateFeaturesModal) {
+    closePrivateFeatures();
   }
 });
 
