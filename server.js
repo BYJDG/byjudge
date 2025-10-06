@@ -28,6 +28,9 @@ const {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Vercel için export
+module.exports = app;
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: false, // Disable for development
@@ -58,9 +61,7 @@ app.use('/api/', limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://yourdomain.com'] 
-    : ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  origin: true,
   credentials: true
 }));
 
