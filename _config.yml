@@ -1,0 +1,14 @@
+title: ByJudge Store
+description: Oyun hilesi satış sistemi
+baseurl: "/byjudge"
+url: "https://byjdg.github.io"
+
+# GitHub Pages settings
+remote_theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
