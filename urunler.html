@@ -28,29 +28,11 @@
     <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
                     <img src="logo/logo.jpg" alt="ByJudge Store Logo" class="w-10 h-10 rounded-lg object-cover" />
                     <span class="text-xl font-bold text-gray-900">ByJudge Store</span>
                 </a>
                 <div class="flex items-center space-x-3">
-                    <div id="userMenu" class="hidden">
-                        <div class="relative dropdown">
-                            <button class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
-                                <i class="fas fa-user"></i>
-                                <span id="userName">Kullanıcı</span>
-                                <i class="fas fa-chevron-down text-xs"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="#" id="profileLink" class="hover:text-blue-600">Profil</a>
-                                <a href="#" id="ordersLink" class="hover:text-blue-600">Siparişlerim</a>
-                                <a href="#" id="logoutLink" class="hover:text-blue-600">Çıkış Yap</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="authButtons" class="flex items-center space-x-2">
-                        <a href="/login" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Giriş Yap</a>
-                        <a href="/register" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">Kayıt Ol</a>
-                    </div>
                     <button id="themeToggle" class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Tema Değiştir">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path id="sunIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" class="hidden"></path>
@@ -58,9 +40,9 @@
                         </svg>
                     </button>
                     <nav class="hidden space-x-8">
-                        <a href="/urunler" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
-                        <a href="/sss" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">SSS</a>
-                        <a href="/iletisim" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
+                        <a href="urunler.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
+                        <a href="sss.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">SSS</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
                     </nav>
                     <button id="mobileMenuButton" class="text-gray-700 hover:text-blue-600 focus:outline-none" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
                         <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -84,15 +66,15 @@
                     </button>
                 </div>
                 <div class="menu-links">
-                    <a href="/">Ana Sayfa</a>
+                    <a href="index.html">Ana Sayfa</a>
                     <a href="#pubg">PUBG Mobile</a>
                     <a href="#valorant">Valorant</a>
                     <a href="#wolftü">Wolfteam</a>
                     <a href="#cs2">CS2</a>
                     <a href="#zula">Zula</a>
-                    <a href="/sss">Sıkça Sorulan Sorular</a>
+                    <a href="sss.html">Sıkça Sorulan Sorular</a>
                     <a href="https://t.me/byjudgeguvence" target="_blank">Güvence Kanalımız</a>
-                    <a href="/iletisim">İletişim</a>
+                    <a href="#contact">İletişim</a>
                 </div>
             </div>
         </div>
@@ -428,7 +410,7 @@
                                 <p class="text-gray-600 mb-2">Özel slot sistemi, 30 gün</p>
                                 <div class="inline-flex items-center bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 px-3 py-1 rounded-full border border-green-200 dark:border-green-700">
                                     <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                                    <span class="text-sm font-semibold text-green-700 dark:text-green-300">Slot: (3/15)</span>
+                                    <span class="text-sm font-semibold text-green-700 dark:text-green-300">Slot: (2/15)</span>
                                 </div>
                             </div>
                             <div class="flex flex-col space-y-2 mb-4">
@@ -662,171 +644,21 @@
     </footer>
 
     <script src="main.js" defer></script>
-    <script>
-        // API Base URL
-        const API_BASE = '/api';
-        
-        // User authentication state
-        let currentUser = null;
-
-        // Initialize user state
-        document.addEventListener('DOMContentLoaded', () => {
-            checkUserAuth();
-        });
-
-        // Check if user is authenticated
-        async function checkUserAuth() {
-            const token = localStorage.getItem('token');
-            const user = localStorage.getItem('user');
-            
-            if (!token || !user) {
-                showAuthButtons();
-                return;
-            }
-
-            try {
-                const response = await fetch(`${API_BASE}/auth/verify`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Invalid token');
-                }
-
-                const result = await response.json();
-                currentUser = result.user;
-                showUserMenu();
-                
-                // If user is admin, add admin link
-                if (currentUser.role === 'admin') {
-                    const userMenu = document.querySelector('#userMenu .dropdown-menu');
-                    const adminLink = document.createElement('a');
-                    adminLink.href = '/admin';
-                    adminLink.className = 'hover:text-blue-600';
-                    adminLink.innerHTML = '<i class="fas fa-cog mr-2"></i>Admin Panel';
-                    userMenu.insertBefore(adminLink, userMenu.firstChild);
-                }
-
-            } catch (error) {
-                localStorage.removeItem('token');
-                localStorage.removeItem('user');
-                showAuthButtons();
-            }
-        }
-
-        // Show authentication buttons
-        function showAuthButtons() {
-            document.getElementById('authButtons').classList.remove('hidden');
-            document.getElementById('userMenu').classList.add('hidden');
-        }
-
-        // Show user menu
-        function showUserMenu() {
-            document.getElementById('authButtons').classList.add('hidden');
-            document.getElementById('userMenu').classList.remove('hidden');
-            document.getElementById('userName').textContent = currentUser.username;
-        }
-
-        // Logout function
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('#logoutLink')) {
-                e.preventDefault();
-                logout();
-            }
-        });
-
-        function logout() {
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            currentUser = null;
-            showAuthButtons();
-            window.location.reload();
-        }
-
-        // Enhanced payment function with order creation
-        async function showPayment(product, price) {
-            if (!currentUser) {
-                alert('Sipariş verebilmek için giriş yapmalısınız.');
-                window.location.href = '/login';
-                return;
-            }
-
-            selectedProduct = product;
-            selectedPrice = price;
-            document.getElementById('productInfo').innerHTML = `
-                <strong>Ürün:</strong> ${product} (${price})
-            `;
-            document.getElementById('paymentModal').style.display = 'block';
-        }
-
-        // Enhanced payment confirmation with order creation
-        async function handlePaymentConfirmation() {
-            if (!currentUser) {
-                alert('Sipariş verebilmek için giriş yapmalısınız.');
-                return;
-            }
-
-            try {
-                // Find product ID from product name (you might need to adjust this logic)
-                const productId = await findProductId(selectedProduct);
-                
-                if (!productId) {
-                    alert('Ürün bulunamadı. Lütfen tekrar deneyin.');
-                    return;
-                }
-
-                // Create order
-                const response = await fetch(`${API_BASE}/orders`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    },
-                    body: JSON.stringify({
-                        product_id: productId,
-                        quantity: 1,
-                        payment_method: 'Bank Transfer',
-                        notes: `Ödeme açıklaması: TAMİ7613912523622538`
-                    })
-                });
-
-                if (response.ok) {
-                    const result = await response.json();
-                    alert(`Sipariş oluşturuldu! Sipariş numaranız: ${result.order.order_number}\n\nÖdeme yaptıktan sonra dekontunuzu yükleyebilirsiniz.`);
-                    closePayment();
-                    window.open('https://t.me/byjudgee', '_blank');
-                } else {
-                    const error = await response.json();
-                    alert(`Sipariş oluşturulamadı: ${error.error}`);
-                }
-
-            } catch (error) {
-                console.error('Sipariş oluşturma hatası:', error);
-                alert('Sipariş oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
-            }
-        }
-
-        // Helper function to find product ID
-        async function findProductId(productName) {
-            try {
-                const response = await fetch(`${API_BASE}/products`);
-                if (!response.ok) return null;
-                
-                const data = await response.json();
-                const product = data.products.find(p => p.name.includes(productName) || productName.includes(p.name));
-                return product ? product.id : null;
-            } catch (error) {
-                console.error('Ürün arama hatası:', error);
-                return null;
-            }
-        }
-
-        // Override the original payment functions
-        window.showPayment = showPayment;
-        window.handlePaymentConfirmation = handlePaymentConfirmation;
-    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
