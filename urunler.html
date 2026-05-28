@@ -15,13 +15,13 @@
     <script>
         // Apply initial theme ASAP
         (function () {
-            try {
-                var stored = localStorage.getItem('theme');
-                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (stored === 'dark' || (!stored && prefersDark)) {
-                    document.documentElement.classList.add('dark');
-                }
-            } catch (e) { }
+        try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        }
+        } catch (e) { }
         })();
     </script>
     <style>
@@ -64,14 +64,14 @@
             border-radius: 8px;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
     </style>
 </head>
 
@@ -85,37 +85,37 @@
                 </a>
                 <div class="flex items-center space-x-3">
                     <button id="themeToggle"
-                        class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        aria-label="Tema Değiştir">
+                            class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            aria-label="Tema Değiştir">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path id="sunIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                                class="hidden"></path>
+                                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                                  class="hidden"></path>
                             <path id="moonIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
                             </path>
                         </svg>
                     </button>
                     <nav class="hidden space-x-8">
                         <a href="urunler.html"
-                            class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
+                           class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Ürünler</a>
                         <a href="sss.html"
-                            class="text-gray-700 hover:text-blue-600 transition-colors font-medium">SSS</a>
+                           class="text-gray-700 hover:text-blue-600 transition-colors font-medium">SSS</a>
                         <a href="#contact"
-                            class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
+                           class="text-gray-700 hover:text-blue-600 transition-colors font-medium">İletişim</a>
                     </nav>
                     <button id="mobileMenuButton" class="text-gray-700 hover:text-blue-600 focus:outline-none"
-                        aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                            aria-label="Menüyü Aç/Kapat" aria-expanded="false">
                         <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
                             <line x1="3" y1="6" x2="21" y2="6" />
                             <line x1="3" y1="12" x2="21" y2="12" />
                             <line x1="3" y1="18" x2="21" y2="18" />
                         </svg>
                         <svg class="icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18" />
                             <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
@@ -129,7 +129,7 @@
                     <div class="menu-title">Diğer</div>
                     <button id="mobileMenuClose" class="text-gray-500 hover:text-gray-" aria-label="Menüyü Kapat">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18" />
                             <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
@@ -175,17 +175,15 @@
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 30 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">1000₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('PUBG Mobile private (pc) (Aylık)', '1000₺')">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('PUBG Mobile private (pc) (Aylık)', '1000₺')">
                                     Satın Al
                                 </button>
                             </div>
@@ -206,22 +204,19 @@
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Haftalık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 7 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
-                                <button
-                                    class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
-                                    onclick="showBypassFeatures()">
+                                <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
+                                        onclick="showBypassFeatures()">
                                     Farkları Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">600₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('PUBG Mobile Bypass (Haftalık)', '350₺')">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('PUBG Mobile Bypass (Haftalık)', '350₺')">
                                     Satın Al
                                 </button>
                             </div>
@@ -231,22 +226,19 @@
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 30 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
-                                <button
-                                    class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
-                                    onclick="showBypassFeatures()">
+                                <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
+                                        onclick="showBypassFeatures()">
                                     Farkları Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">1200₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('PUBG Mobile Bypass (Aylık)', '700₺')">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('PUBG Mobile Bypass (Aylık)', '700₺')">
                                     Satın Al
                                 </button>
                             </div>
@@ -278,84 +270,76 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
                         <div class="bg-gray-50 rounded-lg p-4">
                             <img src="/valorant/1day.png" alt="Valorant External Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-3">
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">1 Gün</h4>
                             <p class="text-gray-600 mb-3">7$</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">7$</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('1 Day External', '7$'">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('1 Day External', '7$'">
                                     Satın Al
                                 </button>
                             </div>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <img src="/valorant/3day.png" alt="Valorant External Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-3">
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">3 Gün</h4>
                             <p class="text-gray-600 mb-3">15$</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">15$</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('3 Days External', '15$')">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('3 Days External', '15$')">
                                     Satın Al
                                 </button>
                             </div>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <img src="/valorant/weekly.png" alt="Valorant External Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-3">
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Haftalık</h4>
                             <p class="text-gray-600 mb-3">25$</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">25$</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Weekly External', '25$'">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Weekly External', '25$'">
                                     Satın Al
                                 </button>
                             </div>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <img src="/valorant/monthly.png" alt="Valorant External Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-3">
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-3">50$</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
                                     Ban Durumu Nedir?
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">50$</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Monthly External', '50$'">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Monthly External', '50$'">
                                     Satın Al
                                 </button>
                             </div>
@@ -376,11 +360,28 @@
             <div class="space-y-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid #e53e3e; position: relative;">
                     <!-- Kurban Bayramı Banner -->
-                    <div style="background: linear-gradient(135deg, #e53e3e 0%, #c53030 50%, #9b2c2c 100%); padding: 10px 20px; text-align: center; position: relative; overflow: hidden;">
+                    <div style="background: linear-gradient(135deg, #e53e3e 0%, #c53030 50%, #9b2c2c 100%); padding: 12px 20px; text-align: center; position: relative; overflow: hidden;">
                         <div style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 22px;">🐑</div>
                         <div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 22px;">🐑</div>
-                        <p style="color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 0;">🎉 KURBAN BAYRAMI'NA ÖZEL DEV İNDİRİM 🎉</p>
-                        <p style="color: #fed7d7; font-size: 11px; margin: 2px 0 0 0;">⏳ Son gün: <strong style="color:#fff;">29 Mayıs</strong> — Kaçırma!</p>
+                        <p style="color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 8px 0;">🎉 KURBAN BAYRAMI'NA ÖZEL DEV İNDİRİM 🎉</p>
+                        <!-- Geri Sayım -->
+                        <div style="display: flex; justify-content: center; gap: 8px; align-items: center;">
+                            <div style="background: rgba(0,0,0,0.35); border-radius: 8px; padding: 4px 10px; min-width: 52px;">
+                                <div id="vlp-countdown-hours" style="color:#fff; font-size: 22px; font-weight: 900; line-height:1;">00</div>
+                                <div style="color:#fed7d7; font-size: 9px; text-transform:uppercase; letter-spacing:1px;">Saat</div>
+                            </div>
+                            <div style="color:#fff; font-size:20px; font-weight:900; margin-bottom:10px;">:</div>
+                            <div style="background: rgba(0,0,0,0.35); border-radius: 8px; padding: 4px 10px; min-width: 52px;">
+                                <div id="vlp-countdown-minutes" style="color:#fff; font-size: 22px; font-weight: 900; line-height:1;">00</div>
+                                <div style="color:#fed7d7; font-size: 9px; text-transform:uppercase; letter-spacing:1px;">Dakika</div>
+                            </div>
+                            <div style="color:#fff; font-size:20px; font-weight:900; margin-bottom:10px;">:</div>
+                            <div style="background: rgba(0,0,0,0.35); border-radius: 8px; padding: 4px 10px; min-width: 52px;">
+                                <div id="vlp-countdown-seconds" style="color:#fff; font-size: 22px; font-weight: 900; line-height:1;">00</div>
+                                <div style="color:#fed7d7; font-size: 9px; text-transform:uppercase; letter-spacing:1px;">Saniye</div>
+                            </div>
+                        </div>
+                        <p id="vlp-countdown-ended" style="color:#fff; font-weight:700; display:none; margin:4px 0 0 0;">⏰ İndirim sona erdi!</p>
                     </div>
                     <div class="p-6 border-b">
                         <div class="flex items-center justify-between">
@@ -391,7 +392,7 @@
                     <div class="p-6">
                         <div class="bg-gray-50 rounded-lg p-6 max-w-md mx-auto" style="border: 1px dashed #e53e3e;">
                             <img src="/wolftü/wolftü.png" alt="Wolfteam VLP Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-4">
+                                 class="w-full h-32 object-cover rounded-lg mb-4">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">30 Günlük</h4>
                             <div style="background:#fff5f5; border-radius:8px; padding:8px 12px; margin-bottom:12px; display:inline-block; border:1px solid #fed7d7;">
                                 <span style="font-size:11px; color:#e53e3e; font-weight:700; text-transform:uppercase;">🔥 Bayram İndirimi Aktif!</span>
@@ -401,18 +402,20 @@
                                 <span class="text-lg font-bold text-gray-900">600₺</span>
                             </p>
                             <div class="flex flex-col space-y-2 mb-4">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
-                                <button
-                                    class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
-                                    onclick="showWolfteamVlpFeatures()">Özellikleri Gör</button>
-                                <button
-                                    class="bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600 transition-colors font-bold"
-                                    onclick="showVlpDiscountModal()">Toplu Alım İndirimleri</button>
-                                <button
-                                    class="bg-purple-600 text-white px-3 py-2 rounded text-sm hover:bg-purple-700 transition-colors font-bold flex items-center justify-center gap-2 shadow-sm"
-                                    onclick="showVlpVideoModal()">
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
+                                <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
+                                        onclick="showWolfteamVlpFeatures()">
+                                    Özellikleri Gör
+                                </button>
+                                <button class="bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600 transition-colors font-bold"
+                                        onclick="showVlpDiscountModal()">
+                                    Toplu Alım İndirimleri
+                                </button>
+                                <button class="bg-purple-600 text-white px-3 py-2 rounded text-sm hover:bg-purple-700 transition-colors font-bold flex items-center justify-center gap-2 shadow-sm"
+                                        onclick="showVlpVideoModal()">
                                     <i class="fas fa-play-circle text-lg"></i>
                                     Tanıtım Videosu
                                 </button>
@@ -422,9 +425,10 @@
                                     <span class="line-through text-red-500 text-sm mr-2">750₺</span>
                                     <span class="text-xl font-bold text-blue-600">600₺</span>
                                 </div>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Wolfteam VLP', '600₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Wolfteam VLP', '600₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -440,26 +444,29 @@
                     <div class="p-6">
                         <div class="bg-gray-50 rounded-lg p-6 max-w-md mx-auto">
                             <img src="/wolftü/wolftü.png" alt="Wolfteam Kodlama Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-4">
+                                 class="w-full h-32 object-cover rounded-lg mb-4">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-4 flex items-center">
                                 <span class="text-lg font-bold text-gray-900">250₺</span>
                             </p>
                             <div class="flex flex-col space-y-2 mb-4">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
-                                <button
-                                    class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
-                                    onclick="showWolfteamFeatures()">Özellikleri Gör</button>
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
+                                <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
+                                        onclick="showWolfteamFeatures()">
+                                    Özellikleri Gör
+                                </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <span class="text-xl font-bold text-blue-600">250₺</span>
                                 </div>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Wolfteam Kodlama', '250₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Wolfteam Kodlama', '250₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -475,26 +482,29 @@
                     <div class="p-6">
                         <div class="bg-gray-50 rounded-lg p-6 max-w-md mx-auto">
                             <img src="/wolftü/wolftü.png" alt="Wolfteam Vip Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-4">
+                                 class="w-full h-32 object-cover rounded-lg mb-4">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-4 flex items-center">
                                 <span class="text-lg font-bold text-gray-900">400₺</span>
                             </p>
                             <div class="flex flex-col space-y-2 mb-4">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
-                                <button
-                                    class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
-                                    onclick="showWolfteamVipFeatures()">Özellikleri Gör</button>
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
+                                <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors"
+                                        onclick="showWolfteamVipFeatures()">
+                                    Özellikleri Gör
+                                </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <span class="text-xl font-bold text-blue-600">400₺</span>
                                 </div>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Wolfteam VİP Kodlama', '400₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Wolfteam VİP Kodlama', '400₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -523,15 +533,17 @@
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Haftalık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 7 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">410₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('CS2 Premium (Haftalık)', '410₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('CS2 Premium (Haftalık)', '410₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
@@ -539,15 +551,17 @@
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 30 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">820₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('CS2 Premium (Aylık)', '820₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('CS2 Premium (Aylık)', '820₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -564,22 +578,21 @@
             </div>
             <div class="space-y-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-purple-500 relative">
-                    <div
-                        class="absolute top-0 right-0 bg-purple-500 text-white px-4 py-1 rounded-bl-lg font-bold shadow-md">
+                    <div class="absolute top-0 right-0 bg-purple-500 text-white px-4 py-1 rounded-bl-lg font-bold shadow-md">
                         <i class="fas fa-crown mr-1"></i> Premium
                     </div>
                     <div class="p-6 border-b bg-gradient-to-r from-gray-50 to-purple-50">
                         <div class="flex items-center justify-between">
                             <div>
                                 <h3 class="text-2xl font-bold text-gray-900 flex items-center">
-                                    <span
-                                        class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Zula
-                                        Private (Slotlu)</span>
+                                    <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                        Zula
+                                        Private (Slotlu)
+                                    </span>
                                 </h3>
                                 <p class="text-sm text-gray-600 mt-1">Özel Müşterilere Özel Sınırlı Erişim</p>
                             </div>
-                            <span
-                                class="text-green-500 text-sm font-semibold animate-pulse px-3 py-1 bg-green-100 rounded-full">UNDETECTED/GÜNCEL</span>
+                            <span class="text-green-500 text-sm font-semibold animate-pulse px-3 py-1 bg-green-100 rounded-full">UNDETECTED/GÜNCEL</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -589,29 +602,30 @@
                             </div>
                             <div class="flex items-center justify-between mb-4 bg-purple-50 p-3 rounded-lg">
                                 <h4 class="text-lg font-bold text-purple-900">Aylık VIP Erişim</h4>
-                                <span class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full">30
-                                    Gün</span>
+                                <span class="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                    30
+                                    Gün
+                                </span>
                             </div>
 
                             <div class="space-y-3 mb-6">
-                                <button
-                                    class="w-full flex items-center justify-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors shadow-sm"
-                                    onclick="showBanInfo()">
+                                <button class="w-full flex items-center justify-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors shadow-sm"
+                                        onclick="showBanInfo()">
                                     <i class="fas fa-shield-alt text-blue-400"></i>
                                     <span>Güvenlik & Ban Durumu</span>
                                 </button>
-                                <button
-                                    class="w-full flex items-center justify-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors shadow-sm"
-                                    onclick="showPrivateFeatures()">
+                                <button class="w-full flex items-center justify-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors shadow-sm"
+                                        onclick="showPrivateFeatures()">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span>Özellikleri İncele</span>
                                 </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-purple-600">1000₺</span>
-                                <button
-                                    class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg font-semibold private-button"
-                                    onclick="showPayment('Zula Private (Aylık)', '1000₺')">Satın Al</button>
+                                <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg font-semibold private-button"
+                                        onclick="showPayment('Zula Private (Aylık)', '1000₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -627,36 +641,40 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
                         <div class="bg-gray-50 rounded-lg p-4">
                             <img src="/zula/7zula.png" alt="Zula Titanware Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-3">
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Haftalık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 7 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">400₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Zula Titanware (Haftalık)', '400₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Zula Titanware (Haftalık)', '400₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4">
                             <img src="/zula/30zula.png" alt="Zula Titanware Ürün Resmi"
-                                class="w-full h-32 object-cover rounded-lg mb-3">
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
                             <h4 class="text-lg font-semibold text-gray-900 mb-2">Aylık</h4>
                             <p class="text-gray-600 mb-3">Tam erişim, 30 gün</p>
                             <div class="flex flex-col space-y-2 mb-3">
-                                <button
-                                    class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-                                    onclick="showBanInfo()">Ban Durumu Nedir?</button>
+                                <button class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
+                                        onclick="showBanInfo()">
+                                    Ban Durumu Nedir?
+                                </button>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-xl font-bold text-blue-600">640₺</span>
-                                <button
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                                    onclick="showPayment('Zula Titanware (Aylık)', '640₺')">Satın Al</button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                                        onclick="showPayment('Zula Titanware (Aylık)', '640₺')">
+                                    Satın Al
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -668,14 +686,19 @@
     <div id="paymentModal" class="payment-modal">
         <div class="payment-card">
             <a href="https://t.me/byjudgeguvence" target="_blank"
-                class="absolute top-4 right-14 text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200 hover:bg-blue-100">Güvence
-                Kanalımız</a>
-            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePayment()"><i
-                    class="fas fa-times text-2xl"></i></button>
+               class="absolute top-4 right-14 text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200 hover:bg-blue-100">
+                Güvence
+                Kanalımız
+            </a>
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePayment()">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
             <h3 class="text-2xl font-bold mb-4">Havale/EFT Ödemesi</h3>
             <div id="productInfo" class="mb-4 font-semibold"></div>
-            <div class="text-red-600 font-bold mb-4"><i class="fas fa-exclamation-triangle mr-2"></i>ÖNEMLİ: Açıklama
-                kısmı zorunludur yazılmadığı sürece tarafımıza iletilmez!</div>
+            <div class="text-red-600 font-bold mb-4">
+                <i class="fas fa-exclamation-triangle mr-2"></i>ÖNEMLİ: Açıklama
+                kısmı zorunludur yazılmadığı sürece tarafımıza iletilmez!
+            </div>
             <div class="mb-6">
                 <strong>Ödeme Açıklaması:</strong>
                 <div class="flex items-center mt-2">
@@ -695,25 +718,31 @@
                             </button>
                         </div>
                     </div>
-            </div>
-            <h4 class="text-lg font-bold mb-4">IBAN Numaraları</h4>
-            <div class="space-y-4">
-                <div class="bank-item">
-                    <div class="flex justify-between items-center"><strong>İban Numarası</strong><button
-                            class="copy-btn" onclick="copyText('TR10 0006 2000 9100 0006 9697 09')"><i
-                                class="fas fa-copy mr-1"></i> Kopyala</button></div>
-                    <div class="text-lg font-mono">TR10 0006 2000 9100 0006 9697 09</div>
                 </div>
+                <h4 class="text-lg font-bold mb-4">IBAN Numaraları</h4>
+                <div class="space-y-4">
+                    <div class="bank-item">
+                        <div class="flex justify-between items-center">
+                            <strong>İban Numarası</strong><button class="copy-btn" onclick="copyText('TR10 0006 2000 9100 0006 9697 09')">
+                                <i class="fas fa-copy mr-1"></i> Kopyala
+                            </button>
+                        </div>
+                        <div class="text-lg font-mono">TR10 0006 2000 9100 0006 9697 09</div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 mt-6">
+                    Ödeme yaptıktan sonra lütfen ödeme tutarını ve sipariş
+                    bilgilerinizi <a href="https://t.me/byjudgee" target="_blank"
+                                     class="text-blue-600 underline">@byjudgee</a>'ye bildirin.
+                </p>
+                <a href="iletisim.html"
+                   class="block text-center w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-200">
+                    Ödeme
+                    Yaptım
+                </a>
             </div>
-            <p class="text-sm text-gray-600 mb-4 mt-6">Ödeme yaptıktan sonra lütfen ödeme tutarını ve sipariş
-                bilgilerinizi <a href="https://t.me/byjudgee" target="_blank"
-                    class="text-blue-600 underline">@byjudgee</a>'ye bildirin.</p>
-            <a href="iletisim.html"
-                class="block text-center w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-200">Ödeme
-                Yaptım</a>
         </div>
     </div>
-</div>
 
     <div id="banInfoModal" class="payment-modal">
         <div class="payment-card">
@@ -750,15 +779,14 @@
 
     <div id="privateFeaturesModal" class="payment-modal">
         <div class="payment-card">
-            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePrivateFeatures()"><i
-                    class="fas fa-times text-2xl"></i></button>
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closePrivateFeatures()">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
             <div class="text-center mb-6">
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4">
                     <i class="fas fa-crown text-white text-2xl"></i>
                 </div>
-                <h3
-                    class="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <h3 class="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     Zula Private Özellikleri
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400">Premium slot sistemi ile güvenli deneyim</p>
@@ -766,28 +794,53 @@
 
             <div class="text-gray-700 dark:text-gray-300 mb-4">
                 <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg mb-4 border border-purple-100">
-                    <p class="text-purple-800 font-semibold mb-2"><i class="fas fa-info-circle mr-2"></i>Slot Sistemi
-                        Hakkında:</p>
-                    <p class="text-sm text-purple-700">Bu hile aylık satılır ve özel slot sistemi ile çalışır. Sunucu
+                    <p class="text-purple-800 font-semibold mb-2">
+                        <i class="fas fa-info-circle mr-2"></i>Slot Sistemi
+                        Hakkında:
+                    </p>
+                    <p class="text-sm text-purple-700">
+                        Bu hile aylık satılır ve özel slot sistemi ile çalışır. Sunucu
                         üzerinde en fazla <span class="font-bold">15 kişi</span> aktif olabilir. Bu sayede güvenlik
-                        maksimum seviyede tutulur ve tespit edilme riski minimize edilir.</p>
+                        maksimum seviyede tutulur ve tespit edilme riski minimize edilir.
+                    </p>
                 </div>
                 <ul class="space-y-3 mb-4">
-                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Aimbot
-                            (Gelişmiş Nişan Yardımı)</span></li>
-                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Wallhack
-                            (Duvarkası Görme)</span></li>
-                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>No Recoil
-                            (Sekmeme)</span></li>
-                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Radar
-                            (Düşmanları Haritada Görme)</span></li>
-                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Gelişmiş Bypass
-                            (%100 Koruma)</span></li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i> <span>
+                            Aimbot
+                            (Gelişmiş Nişan Yardımı)
+                        </span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i> <span>
+                            Wallhack
+                            (Duvarkası Görme)
+                        </span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i> <span>
+                            No Recoil
+                            (Sekmeme)
+                        </span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i> <span>
+                            Radar
+                            (Düşmanları Haritada Görme)
+                        </span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i> <span>
+                            Gelişmiş Bypass
+                            (%100 Koruma)
+                        </span>
+                    </li>
                 </ul>
             </div>
-            <button
-                class="w-full bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-300 transition-colors"
-                onclick="closePrivateFeatures()">Kapat</button>
+            <button class="w-full bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-300 transition-colors"
+                    onclick="closePrivateFeatures()">
+                Kapat
+            </button>
         </div>
     </div>
 
@@ -818,9 +871,8 @@
                 <div>
                 </div>
             </div>
-            <button
-                class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
-                onclick="closeWolfteamFeatures()">
+            <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                    onclick="closeWolfteamFeatures()">
                 Anladım
             </button>
         </div>
@@ -829,7 +881,7 @@
     <div id="wolfteamVipFeaturesModal" class="payment-modal">
         <div class="payment-card">
             <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-                onclick="closeWolfteamVipFeatures()">
+                    onclick="closeWolfteamVipFeatures()">
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-2xl font-bold mb-4 text-blue-600">Wolfteam Vİp Özellikleri</h3>
@@ -895,9 +947,8 @@
                     </ul>
                 </div>
             </div>
-            <button
-                class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
-                onclick="closeWolfteamVipFeatures()">
+            <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                    onclick="closeWolfteamVipFeatures()">
                 Anladım
             </button>
         </div>
@@ -906,7 +957,7 @@
     <div id="wolfteamVlpFeaturesModal" class="payment-modal">
         <div class="payment-card">
             <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-                onclick="closeWolfteamVlpFeatures()">
+                    onclick="closeWolfteamVlpFeatures()">
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-2xl font-bold mb-4 text-blue-600">Wolfteam VLP Özellikleri</h3>
@@ -961,9 +1012,8 @@
                     </ul>
                 </div>
             </div>
-            <button
-                class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
-                onclick="closeWolfteamVlpFeatures()">
+            <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                    onclick="closeWolfteamVlpFeatures()">
                 Anladım
             </button>
         </div>
@@ -985,10 +1035,11 @@
                     <div class="text-right">
                         <span class="line-through text-red-500 text-sm mr-2">3500₺</span>
                         <span class="font-bold text-blue-600 text-xl">3000₺</span>
-                        <button
-                            class="block mt-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 w-full transition-colors"
-                            onclick="showPayment('Wolfteam VLP (5 Key)', '3000₺'); closeVlpDiscountModal();">Satın
-                            Al</button>
+                        <button class="block mt-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 w-full transition-colors"
+                                onclick="showPayment('Wolfteam VLP (5 Key)', '3000₺'); closeVlpDiscountModal();">
+                            Satın
+                            Al
+                        </button>
                     </div>
                 </div>
 
@@ -1000,10 +1051,11 @@
                     <div class="text-right">
                         <span class="line-through text-red-500 text-sm mr-2">7000₺</span>
                         <span class="font-bold text-blue-600 text-xl">6000₺</span>
-                        <button
-                            class="block mt-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 w-full transition-colors"
-                            onclick="showPayment('Wolfteam VLP (10 Key)', '6200₺'); closeVlpDiscountModal();">Satın
-                            Al</button>
+                        <button class="block mt-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 w-full transition-colors"
+                                onclick="showPayment('Wolfteam VLP (10 Key)', '6200₺'); closeVlpDiscountModal();">
+                            Satın
+                            Al
+                        </button>
                     </div>
                 </div>
 
@@ -1015,10 +1067,11 @@
                     <div class="text-right">
                         <span class="line-through text-red-500 text-sm mr-2">17000₺</span>
                         <span class="font-bold text-blue-600 text-xl">15000₺</span>
-                        <button
-                            class="block mt-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 w-full transition-colors"
-                            onclick="showPayment('Wolfteam VLP (25 Key)', '15000₺'); closeVlpDiscountModal();">Satın
-                            Al</button>
+                        <button class="block mt-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 w-full transition-colors"
+                                onclick="showPayment('Wolfteam VLP (25 Key)', '15000₺'); closeVlpDiscountModal();">
+                            Satın
+                            Al
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1027,16 +1080,16 @@
 
     <div id="vlpVideoModal" class="video-modal">
         <div class="video-modal-content">
-            <button
-                class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
-                onclick="closeVlpVideoModal()" style="z-index: 10;">
+            <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+                    onclick="closeVlpVideoModal()" style="z-index: 10;">
                 <i class="fas fa-times text-2xl"></i>
             </button>
-            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-2">Wolfteam VLP Tanıtım Videosu
+            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-2">
+                Wolfteam VLP Tanıtım Videosu
             </h3>
             <div class="video-container">
                 <iframe src="https://drive.google.com/file/d/1yxQ4W_GdJuW8ropAQFqtp8oUUCDnMMkJ/preview"
-                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -1059,28 +1112,28 @@
                     <ul class="space-y-2 text-gray-400">
                         <li>
                             <a href="https://t.me/byjudgee" target="_blank"
-                                class="flex items-center hover:text-white transition-colors">
+                               class="flex items-center hover:text-white transition-colors">
                                 Telegram Hesabı
                                 (@byjudgee)
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com/byjudge0?igsh=MXY1bXc3YWI0NnJvaQ==" target="_blank"
-                                class="flex items-center hover:text-white transition-colors">
+                               class="flex items-center hover:text-white transition-colors">
                                 Instagram Hesabı
                                 (@byjudge0)
                             </a>
                         </li>
                         <li>
                             <a href="https://discord.com/users/853900519516143627" target="_blank"
-                                class="flex items-center hover:text-white transition-colors">
+                               class="flex items-center hover:text-white transition-colors">
                                 Discord Hesabı
                                 (byjudge1903)
                             </a>
                         </li>
                         <li>
                             <a href="https://wa.me/message/EOQCSAYS2MQWB1" target="_blank"
-                                class="flex items-center hover:text-white transition-colors">WhatsApp Hesabı</a>
+                               class="flex items-center hover:text-white transition-colors">WhatsApp Hesabı</a>
                         </li>
                     </ul>
                 </div>
@@ -1095,27 +1148,27 @@
 
     <script>
         function showVlpVideoModal() {
-            document.getElementById('vlpVideoModal').style.display = 'block';
+        document.getElementById('vlpVideoModal').style.display = 'block';
         }
 
         function closeVlpVideoModal() {
-            document.getElementById('vlpVideoModal').style.display = 'none';
+        document.getElementById('vlpVideoModal').style.display = 'none';
 
-            // Videoyu durdurmak için iframe src yenileme işlemi
-            var videoModal = document.getElementById('vlpVideoModal');
-            var iframe = videoModal.querySelector('iframe');
-            if (iframe) {
-                var iframeSrc = iframe.src;
-                iframe.src = iframeSrc; // Linki tekrar atayarak videonun sıfırlanmasını (susmasını) sağlıyoruz
-            }
+        // Videoyu durdurmak için iframe src yenileme işlemi
+        var videoModal = document.getElementById('vlpVideoModal');
+        var iframe = videoModal.querySelector('iframe');
+        if (iframe) {
+        var iframeSrc = iframe.src;
+        iframe.src = iframeSrc; // Linki tekrar atayarak videonun sıfırlanmasını (susmasını) sağlıyoruz
+        }
         }
 
         // Pencere dışına tıklayınca videoyu kapat
         window.addEventListener('click', function (event) {
-            const videoModal = document.getElementById('vlpVideoModal');
-            if (event.target === videoModal) {
-                closeVlpVideoModal();
-            }
+        const videoModal = document.getElementById('vlpVideoModal');
+        if (event.target === videoModal) {
+        closeVlpVideoModal();
+        }
         });
     </script>
 </body>
