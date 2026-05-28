@@ -209,3 +209,44 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+// VLP Kurban Bayramı Geri Sayım
+(function () {
+  var deadline = new Date('2026-05-29T23:59:59').getTime();
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    var now = Date.now();
+    var diff = deadline - now;
+
+    var hoursEl   = document.getElementById('vlp-countdown-hours');
+    var minutesEl = document.getElementById('vlp-countdown-minutes');
+    var secondsEl = document.getElementById('vlp-countdown-seconds');
+    var endedEl   = document.getElementById('vlp-countdown-ended');
+
+    if (!hoursEl) return;
+
+    if (diff <= 0) {
+      hoursEl.closest('div').parentElement.style.display = 'none';
+      if (endedEl) endedEl.style.display = 'block';
+      return;
+    }
+
+    var totalSec = Math.floor(diff / 1000);
+    var hours   = Math.floor(totalSec / 3600);
+    var minutes = Math.floor((totalSec % 3600) / 60);
+    var seconds = totalSec % 60;
+
+    hoursEl.textContent   = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    secondsEl.textContent = pad(seconds);
+
+    setTimeout(tick, 1000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tick);
+  } else {
+    tick();
+  }
+})();
