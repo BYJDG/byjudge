@@ -305,6 +305,20 @@ body.no-scroll { overflow: hidden; }
   box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
 }
 
+/* "YENİ" (New) product badge */
+@keyframes new-badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(249, 115, 22, 0.8), 0 0 28px rgba(239, 68, 68, 0.6);
+  }
+}
+
+.new-badge {
+  animation: new-badge-pulse 2s infinite;
+}
+
 /* Dark mode adjustments for private product */
 .dark .private-product::before {
   background: linear-gradient(45deg, transparent, rgba(147, 51, 234, 0.2), transparent);
