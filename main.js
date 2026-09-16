@@ -78,6 +78,24 @@ function closeVlpDiscountModal() {
   document.getElementById('vlpDiscountModal').style.display = 'none';
 }
 
+// Zula VLP Features Modal functions
+function showZulaVlpFeatures() {
+  document.getElementById('zulaVlpFeaturesModal').style.display = 'block';
+}
+
+function closeZulaVlpFeatures() {
+  document.getElementById('zulaVlpFeaturesModal').style.display = 'none';
+}
+
+// Zula VLP Discount Modal functions
+function showZulaVlpDiscountModal() {
+  document.getElementById('zulaVlpDiscountModal').style.display = 'block';
+}
+
+function closeZulaVlpDiscountModal() {
+  document.getElementById('zulaVlpDiscountModal').style.display = 'none';
+}
+
 function copyText(text) {
   navigator.clipboard.writeText(text).then(() => {
     alert('Başarıyla kopyalandı!');
@@ -101,6 +119,8 @@ document.addEventListener('click', function (event) {
   const wolfteamFeaturesModal = document.getElementById('wolfteamFeaturesModal');
   const wolfteamVlpFeaturesModal = document.getElementById('wolfteamVlpFeaturesModal');
   const vlpDiscountModal = document.getElementById('vlpDiscountModal'); // YENİ
+  const zulaVlpFeaturesModal = document.getElementById('zulaVlpFeaturesModal');
+  const zulaVlpDiscountModal = document.getElementById('zulaVlpDiscountModal');
 
   if (event.target === paymentModal) {
     closePayment();
@@ -125,6 +145,12 @@ document.addEventListener('click', function (event) {
   }
   if (event.target === vlpDiscountModal) { // YENİ
     closeVlpDiscountModal();
+  }
+  if (event.target === zulaVlpFeaturesModal) {
+    closeZulaVlpFeatures();
+  }
+  if (event.target === zulaVlpDiscountModal) {
+    closeZulaVlpDiscountModal();
   }
 });
 
