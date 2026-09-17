@@ -96,6 +96,19 @@ function closeZulaVlpDiscountModal() {
   document.getElementById('zulaVlpDiscountModal').style.display = 'none';
 }
 
+// Generic feature accordion (açılır-kapanır özellik listesi)
+function toggleAccordionItem(headerEl) {
+  const item = headerEl.closest('.accordion-item');
+  const content = item.querySelector('.accordion-content');
+  const isOpen = item.classList.toggle('open');
+
+  if (isOpen) {
+    content.style.maxHeight = content.scrollHeight + 'px';
+  } else {
+    content.style.maxHeight = '0px';
+  }
+}
+
 function copyText(text) {
   navigator.clipboard.writeText(text).then(() => {
     alert('Başarıyla kopyalandı!');
