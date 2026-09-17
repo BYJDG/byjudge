@@ -218,6 +218,88 @@ html.dark { color-scheme: dark; background-color: #0b1220; }
 /* Lock scroll when menu open */
 body.no-scroll { overflow: hidden; }
 
+/* Feature Accordion (açılır-kapanır özellik listesi) */
+.feature-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordion-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background: #f1f5f9;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.accordion-item.open .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  padding: 0 1rem;
+}
+
+.accordion-item.open .accordion-content {
+  padding: 0.75rem 1rem;
+}
+
+.accordion-content ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.accordion-content li {
+  margin-bottom: 0.35rem;
+}
+
+.dark .accordion-item {
+  border-color: #374151;
+}
+
+.dark .accordion-header {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.dark .accordion-header:hover {
+  background: #1f2937;
+}
+
+.dark .accordion-content ul {
+  color: #cbd5e1;
+}
+
 /* Private Product Special Effects */
 .private-product {
   position: relative;
