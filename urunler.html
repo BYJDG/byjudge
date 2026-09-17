@@ -1196,9 +1196,134 @@
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-2xl font-bold mb-4 text-blue-600">sula VLP Özellikleri</h3>
-            <div class="text-gray-700 mb-4 space-y-4 max-h-96 overflow-y-auto pr-2">
-                <!-- Özellikler buraya eklenecek -->
+            <div class="text-gray-700 mb-4 max-h-96 overflow-y-auto pr-2">
+                <div class="feature-accordion">
+                    <!--
+                        ŞABLON KULLANIMI:
+                        Her kategori için bu bloğu kopyala, "Kategori X" yerine başlığı,
+                        <li> satırlarına da ilgili maddeleri yaz. İstediğin kadar
+                        .accordion-item bloğu ekleyebilirsin.
+                    -->
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>AİMBOT</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Silent Aim: Nişangâhı oynatmadan hedef alır.</li>
+                                <li>Auto Lock: Tuşa basmadan hedef seçer.</li>
+                                <li>360 Aim: Her yönden hedef seçer.</li>
+                                <li>Target Priority / Bone: Hedef önceliğini ve bölgesini seçer.</li>
+                                <li>Ignore Passable Objects: Dumanı ve geçilebilir nesneleri yok sayar.</li>
+                                <li>FOV / Smoothness / Distance: Hedefleme alanı, yumuşaklık ve mesafe ayarları.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>VİSUAL (ESP)</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Name / Distance ESP: İsim ve mesafe gösterir.</li>
+                                <li>Direction / Line ESP: Bakış yönü ve konum çizgisi gösterir.</li>
+                                <li>Off-Screen Arrows: Ekran dışındaki rakipleri işaretler.</li>
+                                <li>Health Bar: Herkes Tek modunda can gösterir.</li>
+                                <li>Weapon ESP: Oyuncuların elindeki ve yerdeki silahları gösterir.</li>
+                                <li>BR Item ESP: Seçilen Battle Royale eşya kategorilerini gösterir.</li>
+                                <li>Teammate ESP: Takım arkadaşlarını da gösterir.</li>
+                                <li>Spawn Check: Doğuş korumasını beyaz renkle belirtir.</li>
+                                <li>Grenade / C4 ESP: Bombaların konumunu gösterir.</li>
+                                <li>No Smoke / Flash: Duman ve körlük efektlerini kaldırır.</li>
+                                <li>No Camera Shake: Kamera sarsıntısını kaldırır.</li>
+                                <li>No Scope Overlay: Dürbün kaplamasını kaldırır.</li>
+                                <li>Crosshair: Özel nişangâh çizer.</li>
+                                <li>Report Indicator: Algılanan rapor sayısını gösterir.</li>
+                                <li>ESP Colors: ESP renklerini ayarlar.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>WEAPON</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Instant Weapon Switch: Silah değiştirme gecikmesini kaldırır.</li>
+                                <li>No Weapon Sway: Silah sallanmasını engeller.</li>
+                                <li>Rapid Fire: Atış hızını artırır.</li>
+                                <li>Rapid Knife: Bıçak saldırısını ve animasyonunu hızlandırır.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>SKİN CHANGER</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Search Skins: Kaplamaları isimle aramanızı sağlar.</li>
+                                <li>Knife Models: Bıçak modelini değiştirmenizi sağlar.</li>
+                                <li>Knife Skins: Seçilen bıçağın kaplamasını değiştirir.</li>
+                                <li>Saved Selections: Kaplama ve bıçak seçimlerinizi kaydeder.</li>
+                                <li>Restore Original: Orijinal modele veya kaplamaya döner.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>MOVEMENT</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Camera FOV: Kamera görüş açısını ayarlar.</li>
+                                <li>Movement Speed: Atanan tuşla hareket hızını artırır.</li>
+                                <li>Teleport: Hızlı hareket ve gecikme etkisini birleştirir.</li>
+                                <li>Fake Lag: Hareketinizi rakiplere gecikmeli gösterir.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>MİSC</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Anti AFK: Hareketsizlikten atılmayı engeller.</li>
+                                <li>Anti-Aim: Dışarıdan görünen dikey bakış açısını değiştirir.</li>
+                                <li>Anti Chat Ban: Art arda hızlı mesaj göndermeye izin verir.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button type="button" class="accordion-header" onclick="toggleAccordionItem(this)">
+                            <span>SETTİNGS</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Profiles: Ayarları kaydeder, yükler ve siler.</li>
+                                <li>Legit / Rage: Sabit hazır ayarlar; değişiklikler özel profile kaydedilir.</li>
+                                <li>Auto Save: Ayar değişikliklerini otomatik kaydeder.</li>
+                                <li>Theme / Menu Key: Tema, renk ve menü tuşunu ayarlar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
             <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
                     onclick="closeZulaVlpFeatures()">
                 Anladım
